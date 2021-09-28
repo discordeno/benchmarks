@@ -5,6 +5,8 @@ export function hideEUDText(text: string) {
     return text ? text
     .split("").map(character => {
         if (character === " ") return character;
+        if (numbers.includes(character)) return hideSnowflake(character);
+        
         const random = chooseRandom(alphabet)
         return alphabet.includes(character) ? random : random.toLowerCase()
     })
@@ -23,9 +25,37 @@ export function hideHash(hash: string | null) {
 }
 
 export function hideDate() {
-    return new Date()
+    return new Date().toISOString()
 }
 
 export function chooseRandom<T>(array: T[]) {
     return array[Math.floor(Math.random() * array.length)];
 }
+
+export function loopObject<T = {}>(obj: {}, handler: (value: unknown, key: string) => unknown) {
+    let res: Record<string, unknown> | unknown[] = {};
+  
+    if (Array.isArray(obj)) {
+      res = [];
+  
+      for (const o of obj) {
+        if (typeof o === "object" && !Array.isArray(o) && o !== null) {
+          // A nested object
+          res.push(loopObject(o as {}, handler));
+        } else {
+          res.push(handler(o, "array"));
+        }
+      }
+    } else {
+      for (const [key, value] of Object.entries(obj)) {
+        if (typeof value === "object" && !Array.isArray(value) && value !== null && !(value instanceof Blob)) {
+          // A nested object
+          res[key] = loopObject(value as {}, handler);
+        } else {
+          res[key] = handler(value, key);
+        }
+      }
+    }
+  
+    return res as T;
+  }
