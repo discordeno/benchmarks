@@ -25,14 +25,6 @@ export const db = {
 // This is important as it prepares all the tables.
 await sabr.init();
 
-const FINISHED = new Set([
-  "READY",
-  "INVITE_CREATE",
-  "INVITE_DELETE",
-  "GUILD_JOIN_REQUEST_DELETE",
-  "MESSAGE_REACTION_ADD",
-]);
-
 let counter = 1;
 
 startBot({
