@@ -65,8 +65,7 @@ ws.log = function (type, data: any) {
     return hideEUDText(value);
   });
 
-  // if (data.t === "MESSAGE_CREATE") console.log("mc,", payload, cleanPayload);
-  console.log("Creating Event #", counter)
-  db.events.create(counter.toString(), cleanPayload);
+  console.log("Creating Event #", counter, payload.payload.t)
+  db.events.create(counter.toString(), { ...cleanPayload, payload: {...cleanPayload.payload, t: payload.payload.t }});
   counter++;
 };

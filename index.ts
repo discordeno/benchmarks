@@ -1,5 +1,6 @@
 import { Sabr, SabrTable } from "https://deno.land/x/sabr@1.1.4/mod.ts";
 import {
+  cache,
   delay,
   startBot,
   ws,
@@ -110,6 +111,23 @@ startBot({
         `${results.end.heapTotal / BYTES} MB`,
         "Heap Used",
         `${results.end.heapUsed / BYTES} MB`
+      );
+
+      console.log(
+        "channels",
+        cache.channels.size,
+        "emojis",
+        cache.emojis.size,
+        "guilds",
+        cache.guilds.size,
+        "members",
+        cache.members.size,
+        "messages",
+        cache.messages.size,
+        "presences",
+        cache.presences.size,
+        "threads",
+        cache.threads.size
       );
 
       Deno.exit();
