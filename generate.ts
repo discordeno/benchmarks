@@ -1,8 +1,5 @@
 import { Sabr, SabrTable } from "https://deno.land/x/sabr@1.1.4/mod.ts";
-import {
-  startBot,
-  ws,
-} from "https://deno.land/x/discordeno@12.0.1/mod.ts";
+import { cache, startBot, ws } from "https://deno.land/x/discordeno@12.0.1/mod.ts";
 import { TOKEN } from "./configs.ts";
 import {
   hideDate,
@@ -26,6 +23,8 @@ export const db = {
 await sabr.init();
 
 let counter = 1;
+
+const payloads = new Map<number, any>();
 
 startBot({
   token: TOKEN,
@@ -65,7 +64,24 @@ ws.log = function (type, data: any) {
     return hideEUDText(value);
   });
 
-  console.log("Creating Event #", counter, payload.payload.t)
-  db.events.create(counter.toString(), { ...cleanPayload, payload: {...cleanPayload.payload, t: payload.payload.t }});
+  console.log("Creating Event #", counter, payload.payload.t);
+  if (cache.isReady) {
+    payloads.set(counter, {
+      ...cleanPayload,
+      payload: { ...cleanPayload.payload, t: payload.payload.t },
+    });
+    if (payloads.size === 1000) {
+      db.events.create(counter.toString(), [...payloads.values()]);
+      payloads.clear();
+    }
+  } else {
+    db.events.create(counter.toString(), [
+      {
+        ...cleanPayload,
+        payload: { ...cleanPayload.payload, t: payload.payload.t },
+      },
+    ]);
+  }
+
   counter++;
 };
