@@ -1,11 +1,5 @@
 import { Sabr, SabrTable } from "https://deno.land/x/sabr@1.1.4/mod.ts";
-import {
-  cache,
-  delay,
-  startBot,
-  ws,
-} from "https://deno.land/x/discordeno@12.0.1/mod.ts";
-import { TOKEN } from "./configs.ts";
+// import { cache, ws } from "https://deno.land/x/discordeno@12.0.1/mod.ts";
 
 console.log(`[INFO] Script started.`);
 const sabr = new Sabr();
@@ -33,104 +27,101 @@ const results: {
   start: Deno.memoryUsage(),
 };
 
-console.log(`[INFO] Initial results prepared.`);
+export async function memoryBenchmarks(bot: any, log = true) {
+  async function runTest() {
+    if (log) console.log(`[INFO] Loading json files.`);
 
-console.log(`[INFO] Starting Bot`);
-startBot({
-  token: TOKEN,
-  intents: [],
-  eventHandlers: {
-    shardReady: (id) => console.log(`[READY] Shard ${id} is online.`),
-    // IMPORTAN TO KEEP OFF FOR RUNNING SCRIPT
-    dispatchRequirements: () => null,
-    ready: async () => {
-      async function runTest() {
-        console.log(`[INFO] Bot is started. Loading json files.`);
+    const events = await db.events.getAll(true);
 
-        const events = await db.events.getAll(true);
+    if (log) console.log(`[INFO] DB files loaded into memory.`);
+    // Set the memory stats for when files are loaded in.
+    results.loaded = Deno.memoryUsage();
 
-        console.log(`[INFO] DB files loaded into memory.`);
-        // Set the memory stats for when files are loaded in.
-        results.loaded = Deno.memoryUsage();
+    if (log) console.log(`[INFO] Processing events.`);
+    for (let i = 0; i < events.length; i++) {
+      const e = events[i];
 
-        console.log(`[INFO] Processing events.`);
-        for (let i = 0; i < events.length; i++) {
-          const event = events[i];
-          await ws.handleOnMessage(
-            // @ts-ignore should work
-            JSON.stringify(event.payload),
-            // @ts-ignore should work
-            event.shardId
-          );
-        }
-        console.log(`[INFO] Processing events completed.`);
-
-        // Set results for data once all events are processed
-        results.processed = Deno.memoryUsage();
+      // @ts-ignore should be fine
+      for (const event of Object.values(e)) {
+        await bot.gateway.handleOnMessage(
+          // @ts-ignore should work
+          JSON.stringify(event.payload),
+          // @ts-ignore should work
+          event.shardId
+        );
       }
+    }
+    if (log) console.log(`[INFO] Processing events completed.`);
 
-      await runTest();
+    // Set results for data once all events are processed
+    results.processed = Deno.memoryUsage();
+  }
 
-      const BYTES = 1000000;
+  await runTest();
 
-      // Set final results
-      results.end = Deno.memoryUsage();
+  const BYTES = 1000000;
 
-      console.log(
-        "[RESULTS - Start]",
-        "RSS",
-        `${results.start.rss / BYTES} MB`,
-        "Heap Total",
-        `${results.start.heapTotal / BYTES} MB`,
-        "Heap Used",
-        `${results.start.heapUsed / BYTES} MB`
-      );
-      console.log(
-        "[RESULTS - Loaded]",
-        "RSS",
-        `${results.loaded!.rss / BYTES} MB`,
-        "Heap Total",
-        `${results.loaded!.heapTotal / BYTES} MB`,
-        "Heap Used",
-        `${results.loaded!.heapUsed / BYTES} MB`
-      );
-      console.log(
-        "[RESULTS - Processed]",
-        "RSS",
-        `${results.processed!.rss / BYTES} MB`,
-        "Heap Total",
-        `${results.processed!.heapTotal / BYTES} MB`,
-        "Heap Used",
-        `${results.processed!.heapUsed / BYTES} MB`
-      );
-      console.log(
-        "[RESULTS - End]",
-        "RSS",
-        `${results.end.rss / BYTES} MB`,
-        "Heap Total",
-        `${results.end.heapTotal / BYTES} MB`,
-        "Heap Used",
-        `${results.end.heapUsed / BYTES} MB`
-      );
+  // Set final results
+  results.end = Deno.memoryUsage();
 
-      console.log(
-        "channels",
-        cache.channels.size,
-        "emojis",
-        cache.emojis.size,
-        "guilds",
-        cache.guilds.size,
-        "members",
-        cache.members.size,
-        "messages",
-        cache.messages.size,
-        "presences",
-        cache.presences.size,
-        "threads",
-        cache.threads.size
-      );
+  if (log)
+    console.log(
+      "[RESULTS - Start]",
+      "RSS",
+      `${results.start.rss / BYTES} MB`,
+      "Heap Total",
+      `${results.start.heapTotal / BYTES} MB`,
+      "Heap Used",
+      `${results.start.heapUsed / BYTES} MB`
+    );
+  if (log)
+    console.log(
+      "[RESULTS - Loaded]",
+      "RSS",
+      `${results.loaded!.rss / BYTES} MB`,
+      "Heap Total",
+      `${results.loaded!.heapTotal / BYTES} MB`,
+      "Heap Used",
+      `${results.loaded!.heapUsed / BYTES} MB`
+    );
+  if (log)
+    console.log(
+      "[RESULTS - Processed]",
+      "RSS",
+      `${results.processed!.rss / BYTES} MB`,
+      "Heap Total",
+      `${results.processed!.heapTotal / BYTES} MB`,
+      "Heap Used",
+      `${results.processed!.heapUsed / BYTES} MB`
+    );
+  if (log)
+    console.log(
+      "[RESULTS - End]",
+      "RSS",
+      `${results.end.rss / BYTES} MB`,
+      "Heap Total",
+      `${results.end.heapTotal / BYTES} MB`,
+      "Heap Used",
+      `${results.end.heapUsed / BYTES} MB`
+    );
 
-      Deno.exit();
-    },
-  },
-});
+  if (log)
+    console.log(
+      "channels",
+      bot.cache.channels.size,
+      "emojis",
+      bot.cache.emojis.size,
+      "guilds",
+      bot.cache.guilds.size,
+      "members",
+      bot.cache.members.size,
+      "messages",
+      bot.cache.messages.size,
+      "presences",
+      bot.cache.presences.size,
+      "threads",
+      bot.cache.threads.size
+    );
+
+  return results;
+}
