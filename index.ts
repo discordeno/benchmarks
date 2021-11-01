@@ -120,7 +120,7 @@ export async function memoryBenchmarks(bot: any, log = true) {
       "presences",
       bot.cache.presences?.size(),
       "threads",
-      bot.cache.threads?.siz()e
+      bot.cache.threads?.size()
     );
 
   return results;
