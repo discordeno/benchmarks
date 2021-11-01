@@ -108,19 +108,19 @@ export async function memoryBenchmarks(bot: any, log = true) {
   if (log)
     console.log(
       "channels",
-      bot.cache.channels.size,
+      bot.cache.channels?.size(),
       "emojis",
-      bot.cache.emojis.size,
+      bot.cache.emojis?.size(),
       "guilds",
-      bot.cache.guilds.size,
+      bot.cache.guilds?.size(),
       "members",
-      bot.cache.members.size,
+      bot.cache.members?.size(),
       "messages",
-      bot.cache.messages.size,
+      bot.cache.messages?.size(),
       "presences",
-      bot.cache.presences.size,
+      bot.cache.presences?.size(),
       "threads",
-      bot.cache.threads.size
+      bot.cache.threads?.siz()e
     );
 
   return results;
