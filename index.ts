@@ -3,6 +3,7 @@ import { Sabr, SabrTable } from "https://deno.land/x/sabr@1.1.4/mod.ts";
 
 console.log(`[INFO] Script started.`);
 const sabr = new Sabr();
+sabr.directoryPath = `${Deno.cwd()}/benchmarks/db/`;
 
 // Creates a db object that can be imported in other files.
 export const db = {
@@ -33,25 +34,33 @@ export async function memoryBenchmarks(bot: any, log = true) {
 
     const events = await db.events.getAll(true);
 
-    if (log) console.log(`[INFO] DB files loaded into memory.`);
+    if (log) console.log(`[INFO] DB files loaded into memory.`, events.length);
     // Set the memory stats for when files are loaded in.
     results.loaded = Deno.memoryUsage();
 
-    if (log) console.log(`[INFO] Processing events.`);
+    let counter = 0;
+
     for (let i = 0; i < events.length; i++) {
       const e = events[i];
 
       // @ts-ignore should be fine
       for (const event of Object.values(e)) {
-        await bot.gateway.handleOnMessage(
-          // @ts-ignore should work
-          JSON.stringify(event.payload),
-          // @ts-ignore should work
-          event.shardId
-        );
+        counter++;
+
+        try {
+          await bot.gateway.handleOnMessage(
+            bot.gateway,
+            // @ts-ignore should work
+            JSON.stringify(event.payload),
+            // @ts-ignore should work
+            event.shardId
+          );
+        } catch (error) {
+          console.log("erroring in benchmark", error);
+        }
       }
     }
-    if (log) console.log(`[INFO] Processing events completed.`);
+    if (log) console.log(`[INFO] Processed ${counter.toLocaleString()} events.`);
 
     // Set results for data once all events are processed
     results.processed = Deno.memoryUsage();
@@ -64,64 +73,53 @@ export async function memoryBenchmarks(bot: any, log = true) {
   // Set final results
   results.end = Deno.memoryUsage();
 
-  if (log)
-    console.log(
-      "[RESULTS - Start]",
-      "RSS",
-      `${results.start.rss / BYTES} MB`,
-      "Heap Total",
-      `${results.start.heapTotal / BYTES} MB`,
-      "Heap Used",
-      `${results.start.heapUsed / BYTES} MB`
-    );
-  if (log)
-    console.log(
-      "[RESULTS - Loaded]",
-      "RSS",
-      `${results.loaded!.rss / BYTES} MB`,
-      "Heap Total",
-      `${results.loaded!.heapTotal / BYTES} MB`,
-      "Heap Used",
-      `${results.loaded!.heapUsed / BYTES} MB`
-    );
-  if (log)
-    console.log(
-      "[RESULTS - Processed]",
-      "RSS",
-      `${results.processed!.rss / BYTES} MB`,
-      "Heap Total",
-      `${results.processed!.heapTotal / BYTES} MB`,
-      "Heap Used",
-      `${results.processed!.heapUsed / BYTES} MB`
-    );
-  if (log)
-    console.log(
-      "[RESULTS - End]",
-      "RSS",
-      `${results.end.rss / BYTES} MB`,
-      "Heap Total",
-      `${results.end.heapTotal / BYTES} MB`,
-      "Heap Used",
-      `${results.end.heapUsed / BYTES} MB`
-    );
+  const humanReadable = {
+    Starting: {
+      RSS: `${results.start.rss / BYTES} MB`,
+      "Heap Used": `${results.start.heapUsed / BYTES} MB`,
+      "Heap Total": `${results.start.heapTotal / BYTES} MB`,
+    },
+    Loaded: {
+      RSS: `${results.loaded!.rss / BYTES} MB`,
+      "Heap Used": `${results.loaded!.heapUsed / BYTES} MB`,
+      "Heap Total": `${results.loaded!.heapTotal / BYTES} MB`,
+    },
+    Processed: {
+      RSS: `${results.processed!.rss / BYTES} MB`,
+      "Heap Used": `${results.processed!.heapUsed / BYTES} MB`,
+      "Heap Total": `${results.processed!.heapTotal / BYTES} MB`,
+    },
+    End: {
+      RSS: `${results.end.rss / BYTES} MB`,
+      "Heap Used": `${results.end.heapUsed / BYTES} MB`,
+      "Heap Total": `${results.end.heapTotal / BYTES} MB`,
+    },
+    Cached: {
+      RSS: `${(results.end.rss - results.loaded!.rss) / BYTES} MB`,
+      "Heap Used": `${(results.end.heapUsed - results.loaded!.heapUsed) / BYTES} MB`,
+      "Heap Total": `${(results.end.heapTotal - results.loaded!.heapTotal) / BYTES} MB`,
+    },
+  };
 
   if (log)
     console.log(
       "channels",
-      bot.cache.channels?.size(),
+      bot.cache.channels?.size().toLocaleString(),
       "emojis",
-      bot.cache.emojis?.size(),
+      bot.cache.emojis?.size().toLocaleString(),
       "guilds",
-      bot.cache.guilds?.size(),
+      bot.cache.guilds?.size().toLocaleString(),
       "members",
-      bot.cache.members?.size(),
+      bot.cache.members?.size().toLocaleString(),
       "messages",
-      bot.cache.messages?.size(),
+      bot.cache.messages?.size().toLocaleString(),
       "presences",
-      bot.cache.presences?.size(),
+      bot.cache.presences?.size().toLocaleString(),
       "threads",
-      bot.cache.threads?.size()
+      bot.cache.threads?.size().toLocaleString()
     );
+
+  if (log) console.table(humanReadable);
 
   return results;
 }
