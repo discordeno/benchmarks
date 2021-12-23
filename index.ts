@@ -1,4 +1,4 @@
-import { Sabr, SabrTable } from "https://deno.land/x/sabr@1.1.4/mod.ts";
+import { Sabr, SabrTable } from "https://deno.land/x/sabr@1.1.5/mod.ts";
 
 console.log(`[INFO] Script started.`);
 const sabr = new Sabr();
