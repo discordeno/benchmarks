@@ -1,5 +1,4 @@
 import { Sabr, SabrTable } from "https://deno.land/x/sabr@1.1.4/mod.ts";
-// import { cache, ws } from "https://deno.land/x/discordeno@12.0.1/mod.ts";
 
 console.log(`[INFO] Script started.`);
 const sabr = new Sabr();
@@ -28,13 +27,16 @@ const results: {
   start: Deno.memoryUsage(),
 };
 
-export async function memoryBenchmarks(bot: any, log = true) {
+export async function memoryBenchmarks(
+  bot: any,
+  options: { log: boolean; table: boolean } = { log: false, table: true }
+) {
   async function runTest() {
-    if (log) console.log(`[INFO] Loading json files.`);
+    if (options.log) console.log(`[INFO] Loading json files.`);
 
     const events = await db.events.getAll(true);
 
-    if (log) console.log(`[INFO] DB files loaded into memory.`, events.length);
+    if (options.log) console.log(`[INFO] DB files loaded into memory.`, events.length);
     // Set the memory stats for when files are loaded in.
     results.loaded = Deno.memoryUsage();
 
@@ -60,7 +62,7 @@ export async function memoryBenchmarks(bot: any, log = true) {
         }
       }
     }
-    if (log) console.log(`[INFO] Processed ${counter.toLocaleString()} events.`);
+    if (options.log) console.log(`[INFO] Processed ${counter.toLocaleString()} events.`);
 
     // Set results for data once all events are processed
     results.processed = Deno.memoryUsage();
@@ -101,25 +103,23 @@ export async function memoryBenchmarks(bot: any, log = true) {
     },
   };
 
-  if (log)
+  if (options.log)
     console.log(
       "channels",
-      bot.cache.channels?.size().toLocaleString(),
-      "emojis",
-      bot.cache.emojis?.size().toLocaleString(),
+      bot.channels.size.toLocaleString(),
       "guilds",
-      bot.cache.guilds?.size().toLocaleString(),
+      bot.guilds.size.toLocaleString(),
       "members",
-      bot.cache.members?.size().toLocaleString(),
+      bot.members.size.toLocaleString(),
+      "users",
+      bot.users.size.toLocaleString(),
       "messages",
-      bot.cache.messages?.size().toLocaleString(),
+      bot.messages.size.toLocaleString(),
       "presences",
-      bot.cache.presences?.size().toLocaleString(),
-      "threads",
-      bot.cache.threads?.size().toLocaleString()
+      bot.presences.size.toLocaleString()
     );
 
-  if (log) console.table(humanReadable);
+  if (options.table) console.table(humanReadable);
 
   return results;
 }
