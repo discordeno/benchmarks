@@ -1,1 +1,35 @@
-{"0":{"shardId":7,"payload":{"t":"GUILD_MEMBER_UPDATE","s":1094,"op":0,"d":{"user":{"username":"dujlmd","public_flags":0,"id":"897315519032911112","discriminator":"4188","avatar":"a_eae5905ad2d18d7c8deca20478b088b5"},"roles":["331450256366367424","202389695110332506","934668689462698667"],"premium_since":null,"pending":false,"nick":null,"mute":false,"joined_at":"2021-10-10T08:16:18.408Z","is_pending":false,"hoisted_role":null,"guild_id":"554764868503726534","deaf":false,"avatar":null}}},"id":"9232"}
+{
+  "0": {
+    "shardId": 7,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 1094,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "dujlmd",
+          "public_flags": 0,
+          "id": "897315519032911112",
+          "discriminator": "4188",
+          "avatar": "a_eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "roles": [
+          "331450256366367424",
+          "202389695110332506",
+          "934668689462698667"
+        ],
+        "premium_since": null,
+        "pending": false,
+        "nick": null,
+        "mute": false,
+        "joined_at": "2021-10-10T08:16:18.408Z",
+        "is_pending": false,
+        "hoisted_role": null,
+        "guild_id": "554764868503726534",
+        "deaf": false,
+        "avatar": null
+      }
+    }
+  },
+  "id": "9232"
+}

@@ -1,1 +1,35 @@
-{"0":{"shardId":6,"payload":{"t":"GUILD_MEMBER_UPDATE","s":1148,"op":0,"d":{"user":{"username":"BDO6","public_flags":65536,"id":"683540997531643585","discriminator":"2492","bot":true,"avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["465351252286191280","520310039838420170","299663501312803023","971363914218866644","456400435527189666"],"premium_since":null,"pending":false,"nick":"Bkjc Jje1","joined_at":"2021-10-10T08:16:17.260Z","is_pending":false,"guild_id":"311939092938733190","avatar":null}}},"id":"9108"}
+{
+  "0": {
+    "shardId": 6,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 1148,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "BDO6",
+          "public_flags": 65536,
+          "id": "683540997531643585",
+          "discriminator": "2492",
+          "bot": true,
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "roles": [
+          "465351252286191280",
+          "520310039838420170",
+          "299663501312803023",
+          "971363914218866644",
+          "456400435527189666"
+        ],
+        "premium_since": null,
+        "pending": false,
+        "nick": "Bkjc Jje1",
+        "joined_at": "2021-10-10T08:16:17.260Z",
+        "is_pending": false,
+        "guild_id": "311939092938733190",
+        "avatar": null
+      }
+    }
+  },
+  "id": "9108"
+}

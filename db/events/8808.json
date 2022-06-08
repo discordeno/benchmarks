@@ -1,1 +1,29 @@
-{"0":{"shardId":0,"payload":{"t":"GUILD_MEMBER_UPDATE","s":1166,"op":0,"d":{"user":{"username":"vkpenfkx qRROGb hw","public_flags":0,"id":"966139350236664722","discriminator":"9202","bot":true,"avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["154404844963255330","612902999533256457"],"premium_since":null,"pending":false,"nick":null,"joined_at":"2021-10-10T08:16:15.043Z","is_pending":false,"guild_id":"135308472459023282","avatar":null}}},"id":"8808"}
+{
+  "0": {
+    "shardId": 0,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 1166,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "vkpenfkx qRROGb hw",
+          "public_flags": 0,
+          "id": "966139350236664722",
+          "discriminator": "9202",
+          "bot": true,
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "roles": ["154404844963255330", "612902999533256457"],
+        "premium_since": null,
+        "pending": false,
+        "nick": null,
+        "joined_at": "2021-10-10T08:16:15.043Z",
+        "is_pending": false,
+        "guild_id": "135308472459023282",
+        "avatar": null
+      }
+    }
+  },
+  "id": "8808"
+}

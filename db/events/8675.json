@@ -1,1 +1,115 @@
-{"0":{"shardId":8,"payload":{"t":"GUILD_CREATE","s":64,"op":0,"d":{"premium_subscription_count":0,"name":"Aralush Suce s7","system_channel_flags":0,"description":null,"premium_progress_bar_enabled":false,"max_video_channel_users":25,"discovery_splash":null,"presences":[],"members":[{"user":{"username":"Yeqpn","public_flags":65536,"id":"487013044190539463","discriminator":"1269","bot":true,"avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":[],"mute":false,"joined_at":"2021-10-10T08:16:14.060Z","hoisted_role":null,"deaf":false}],"explicit_content_filter":0,"system_channel_id":null,"channels":[{"type":0,"topic":null,"rate_limit_per_user":0,"position":0,"permission_overwrites":[],"name":"vdramqq","last_message_id":"562854256426839901","id":"386819352141282256"},{"user_limit":0,"type":2,"rtc_region":null,"position":0,"permission_overwrites":[],"name":"Ntwtkro","id":"624519156504616254","bitrate":64000}],"roles":[{"position":0,"permissions":"7534605768551","name":"gffueavrf","mentionable":false,"managed":false,"id":"289678005818375705","hoist":false,"color":0}],"verification_level":0,"afk_timeout":300,"application_id":null,"application_command_counts":{"1":0,"2":0,"3":0},"default_message_notifications":0,"lazy":true,"vanity_url_code":null,"nsfw_level":0,"member_count":324,"emojis":[],"afk_channel_id":null,"joined_at":"2021-10-10T08:16:14.060Z","owner_id":"486935498327395052","threads":[],"mfa_level":0,"region":"ikouszu","guild_hashes":{"version":1,"roles":{"omitted":false,"hash":"srEgCwboMf9"},"metadata":{"omitted":false,"hash":"xNuKzLkX3OI"},"channels":{"omitted":false,"hash":"LcWmqupv5ff"}},"max_members":250000,"public_updates_channel_id":null,"nsfw":false,"banner":null,"splash":null,"embedded_activities":[],"id":"314231233499436960","rules_channel_id":null,"premium_tier":0,"icon":null,"voice_states":[],"stickers":[],"unavailable":false,"preferred_locale":"atpQD","guild_scheduled_events":[],"application_command_count":0,"stage_instances":[],"features":[],"large":true}}},"id":"8675"}
+{
+  "0": {
+    "shardId": 8,
+    "payload": {
+      "t": "GUILD_CREATE",
+      "s": 64,
+      "op": 0,
+      "d": {
+        "premium_subscription_count": 0,
+        "name": "Aralush Suce s7",
+        "system_channel_flags": 0,
+        "description": null,
+        "premium_progress_bar_enabled": false,
+        "max_video_channel_users": 25,
+        "discovery_splash": null,
+        "presences": [],
+        "members": [
+          {
+            "user": {
+              "username": "Yeqpn",
+              "public_flags": 65536,
+              "id": "487013044190539463",
+              "discriminator": "1269",
+              "bot": true,
+              "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+            },
+            "roles": [],
+            "mute": false,
+            "joined_at": "2021-10-10T08:16:14.060Z",
+            "hoisted_role": null,
+            "deaf": false
+          }
+        ],
+        "explicit_content_filter": 0,
+        "system_channel_id": null,
+        "channels": [
+          {
+            "type": 0,
+            "topic": null,
+            "rate_limit_per_user": 0,
+            "position": 0,
+            "permission_overwrites": [],
+            "name": "vdramqq",
+            "last_message_id": "562854256426839901",
+            "id": "386819352141282256"
+          },
+          {
+            "user_limit": 0,
+            "type": 2,
+            "rtc_region": null,
+            "position": 0,
+            "permission_overwrites": [],
+            "name": "Ntwtkro",
+            "id": "624519156504616254",
+            "bitrate": 64000
+          }
+        ],
+        "roles": [
+          {
+            "position": 0,
+            "permissions": "7534605768551",
+            "name": "gffueavrf",
+            "mentionable": false,
+            "managed": false,
+            "id": "289678005818375705",
+            "hoist": false,
+            "color": 0
+          }
+        ],
+        "verification_level": 0,
+        "afk_timeout": 300,
+        "application_id": null,
+        "application_command_counts": { "1": 0, "2": 0, "3": 0 },
+        "default_message_notifications": 0,
+        "lazy": true,
+        "vanity_url_code": null,
+        "nsfw_level": 0,
+        "member_count": 324,
+        "emojis": [],
+        "afk_channel_id": null,
+        "joined_at": "2021-10-10T08:16:14.060Z",
+        "owner_id": "486935498327395052",
+        "threads": [],
+        "mfa_level": 0,
+        "region": "ikouszu",
+        "guild_hashes": {
+          "version": 1,
+          "roles": { "omitted": false, "hash": "srEgCwboMf9" },
+          "metadata": { "omitted": false, "hash": "xNuKzLkX3OI" },
+          "channels": { "omitted": false, "hash": "LcWmqupv5ff" }
+        },
+        "max_members": 250000,
+        "public_updates_channel_id": null,
+        "nsfw": false,
+        "banner": null,
+        "splash": null,
+        "embedded_activities": [],
+        "id": "314231233499436960",
+        "rules_channel_id": null,
+        "premium_tier": 0,
+        "icon": null,
+        "voice_states": [],
+        "stickers": [],
+        "unavailable": false,
+        "preferred_locale": "atpQD",
+        "guild_scheduled_events": [],
+        "application_command_count": 0,
+        "stage_instances": [],
+        "features": [],
+        "large": true
+      }
+    }
+  },
+  "id": "8675"
+}

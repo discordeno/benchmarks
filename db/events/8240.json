@@ -1,1 +1,38 @@
-{"0":{"shardId":4,"payload":{"t":"CHANNEL_UPDATE","s":1068,"op":0,"d":{"user_limit":0,"type":2,"rtc_region":null,"position":3,"permission_overwrites":[{"type":0,"id":"822586493900685869","deny":"749559736","allow":"2871"}],"parent_id":null,"nsfw":false,"name":"qs Ecddqk64 Iwks 5448","last_message_id":null,"id":"947498097835703367","guild_id":"693229791204922537","guild_hashes":{"version":1,"roles":{"hash":"naAl3YYx9Ii"},"metadata":{"hash":"DQ95v2a4chh"},"channels":{"hash":"VIm5A76ZtFG"}},"bitrate":64000}}},"id":"8240"}
+{
+  "0": {
+    "shardId": 4,
+    "payload": {
+      "t": "CHANNEL_UPDATE",
+      "s": 1068,
+      "op": 0,
+      "d": {
+        "user_limit": 0,
+        "type": 2,
+        "rtc_region": null,
+        "position": 3,
+        "permission_overwrites": [
+          {
+            "type": 0,
+            "id": "822586493900685869",
+            "deny": "749559736",
+            "allow": "2871"
+          }
+        ],
+        "parent_id": null,
+        "nsfw": false,
+        "name": "qs Ecddqk64 Iwks 5448",
+        "last_message_id": null,
+        "id": "947498097835703367",
+        "guild_id": "693229791204922537",
+        "guild_hashes": {
+          "version": 1,
+          "roles": { "hash": "naAl3YYx9Ii" },
+          "metadata": { "hash": "DQ95v2a4chh" },
+          "channels": { "hash": "VIm5A76ZtFG" }
+        },
+        "bitrate": 64000
+      }
+    }
+  },
+  "id": "8240"
+}

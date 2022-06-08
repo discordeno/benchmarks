@@ -1,1 +1,58 @@
-{"0":{"shardId":5,"payload":{"t":"VOICE_STATE_UPDATE","s":1111,"op":0,"d":{"member":{"user":{"username":"xyccyiapcclnfep","public_flags":0,"id":"879090008739012105","discriminator":"1866","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["333302554467579473","935652356141897854","472231166052663035","178290712040294172","195598088755439276","418571604820426391","226400625812990854","154983967475587399","929909949445854394","869323779056982611","388763463906592080","507768732561433445","803750829077648663","114241812826224578"],"premium_since":null,"pending":false,"nick":"nfzuey","mute":false,"joined_at":"2021-10-10T08:16:14.807Z","is_pending":false,"hoisted_role":"604660766627320912","deaf":false,"avatar":null},"user_id":"243654547668378940","suppress":false,"session_id":"317k37q3611799769b9791r8sci4d1n8","self_video":false,"self_mute":false,"self_deaf":false,"request_to_speak_timestamp":null,"mute":false,"guild_id":"496967411746959925","deaf":false,"channel_id":"149003077454928682"}}},"id":"8771"}
+{
+  "0": {
+    "shardId": 5,
+    "payload": {
+      "t": "VOICE_STATE_UPDATE",
+      "s": 1111,
+      "op": 0,
+      "d": {
+        "member": {
+          "user": {
+            "username": "xyccyiapcclnfep",
+            "public_flags": 0,
+            "id": "879090008739012105",
+            "discriminator": "1866",
+            "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+          },
+          "roles": [
+            "333302554467579473",
+            "935652356141897854",
+            "472231166052663035",
+            "178290712040294172",
+            "195598088755439276",
+            "418571604820426391",
+            "226400625812990854",
+            "154983967475587399",
+            "929909949445854394",
+            "869323779056982611",
+            "388763463906592080",
+            "507768732561433445",
+            "803750829077648663",
+            "114241812826224578"
+          ],
+          "premium_since": null,
+          "pending": false,
+          "nick": "nfzuey",
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:14.807Z",
+          "is_pending": false,
+          "hoisted_role": "604660766627320912",
+          "deaf": false,
+          "avatar": null
+        },
+        "user_id": "243654547668378940",
+        "suppress": false,
+        "session_id": "317k37q3611799769b9791r8sci4d1n8",
+        "self_video": false,
+        "self_mute": false,
+        "self_deaf": false,
+        "request_to_speak_timestamp": null,
+        "mute": false,
+        "guild_id": "496967411746959925",
+        "deaf": false,
+        "channel_id": "149003077454928682"
+      }
+    }
+  },
+  "id": "8771"
+}

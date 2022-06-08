@@ -1,1 +1,145 @@
-{"0":{"shardId":3,"payload":{"t":"GUILD_CREATE","s":563,"op":0,"d":{"name":"zQnpeintlgha vmpbad","guild_scheduled_events":[],"public_updates_channel_id":null,"system_channel_id":"239986372975068118","description":null,"application_id":null,"stickers":[],"icon":null,"application_command_count":8,"lazy":true,"mfa_level":0,"embedded_activities":[],"emojis":[],"premium_tier":0,"rules_channel_id":null,"unavailable":false,"application_command_counts":{"1":8,"2":0,"3":0},"premium_subscription_count":0,"system_channel_flags":0,"large":false,"member_count":3,"features":[],"splash":null,"voice_states":[],"region":"rrajra","vanity_url_code":null,"joined_at":"2021-10-10T08:15:33.053Z","threads":[],"guild_hashes":{"version":1,"roles":{"omitted":false,"hash":"w5nDkDgVrHJ"},"metadata":{"omitted":false,"hash":"9vjWm9jQK1I"},"channels":{"omitted":false,"hash":"HPstU8oCbg4"}},"presences":[],"explicit_content_filter":0,"max_members":250000,"banner":null,"discovery_splash":null,"roles":[{"position":0,"permissions":"3049489068805","name":"nmdfxlugm","mentionable":false,"managed":false,"id":"687214697293115683","hoist":false,"color":0},{"tags":{"bot_id":"639694157738676100"},"position":2,"permissions":"4213983483","name":"Etsvvkt","mentionable":false,"managed":true,"id":"316278945324456476","hoist":false,"color":0},{"position":1,"permissions":"6996811974","name":"Ywyohows","mentionable":false,"managed":false,"id":"922393875820723989","hoist":false,"color":10038562},{"tags":{"bot_id":"801920399785424398"},"position":1,"permissions":"3518396294","name":"Zbakv","mentionable":false,"managed":true,"id":"686953973098870023","hoist":false,"color":0}],"max_video_channel_users":25,"id":"113512789122894997","afk_timeout":300,"nsfw_level":0,"preferred_locale":"mwnGI","verification_level":0,"nsfw":false,"default_message_notifications":0,"channels":[{"type":4,"position":0,"permission_overwrites":[],"name":"Iobzilw dy xozws","id":"301586101597943253"},{"type":0,"topic":null,"rate_limit_per_user":0,"position":0,"permission_overwrites":[],"parent_id":"762413533519405175","name":"jvbbbtj","last_message_id":"639290034395582184","id":"694154522667991107"}],"premium_progress_bar_enabled":false,"owner_id":"559977710378538976","stage_instances":[],"members":[{"user":{"username":"Llnse","public_flags":65536,"id":"709302221716954539","discriminator":"3432","bot":true,"avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["620555198489573629"],"mute":false,"joined_at":"2021-10-10T08:15:33.053Z","hoisted_role":null,"deaf":false}],"afk_channel_id":null}}},"id":"3765"}
+{
+  "0": {
+    "shardId": 3,
+    "payload": {
+      "t": "GUILD_CREATE",
+      "s": 563,
+      "op": 0,
+      "d": {
+        "name": "zQnpeintlgha vmpbad",
+        "guild_scheduled_events": [],
+        "public_updates_channel_id": null,
+        "system_channel_id": "239986372975068118",
+        "description": null,
+        "application_id": null,
+        "stickers": [],
+        "icon": null,
+        "application_command_count": 8,
+        "lazy": true,
+        "mfa_level": 0,
+        "embedded_activities": [],
+        "emojis": [],
+        "premium_tier": 0,
+        "rules_channel_id": null,
+        "unavailable": false,
+        "application_command_counts": { "1": 8, "2": 0, "3": 0 },
+        "premium_subscription_count": 0,
+        "system_channel_flags": 0,
+        "large": false,
+        "member_count": 3,
+        "features": [],
+        "splash": null,
+        "voice_states": [],
+        "region": "rrajra",
+        "vanity_url_code": null,
+        "joined_at": "2021-10-10T08:15:33.053Z",
+        "threads": [],
+        "guild_hashes": {
+          "version": 1,
+          "roles": { "omitted": false, "hash": "w5nDkDgVrHJ" },
+          "metadata": { "omitted": false, "hash": "9vjWm9jQK1I" },
+          "channels": { "omitted": false, "hash": "HPstU8oCbg4" }
+        },
+        "presences": [],
+        "explicit_content_filter": 0,
+        "max_members": 250000,
+        "banner": null,
+        "discovery_splash": null,
+        "roles": [
+          {
+            "position": 0,
+            "permissions": "3049489068805",
+            "name": "nmdfxlugm",
+            "mentionable": false,
+            "managed": false,
+            "id": "687214697293115683",
+            "hoist": false,
+            "color": 0
+          },
+          {
+            "tags": { "bot_id": "639694157738676100" },
+            "position": 2,
+            "permissions": "4213983483",
+            "name": "Etsvvkt",
+            "mentionable": false,
+            "managed": true,
+            "id": "316278945324456476",
+            "hoist": false,
+            "color": 0
+          },
+          {
+            "position": 1,
+            "permissions": "6996811974",
+            "name": "Ywyohows",
+            "mentionable": false,
+            "managed": false,
+            "id": "922393875820723989",
+            "hoist": false,
+            "color": 10038562
+          },
+          {
+            "tags": { "bot_id": "801920399785424398" },
+            "position": 1,
+            "permissions": "3518396294",
+            "name": "Zbakv",
+            "mentionable": false,
+            "managed": true,
+            "id": "686953973098870023",
+            "hoist": false,
+            "color": 0
+          }
+        ],
+        "max_video_channel_users": 25,
+        "id": "113512789122894997",
+        "afk_timeout": 300,
+        "nsfw_level": 0,
+        "preferred_locale": "mwnGI",
+        "verification_level": 0,
+        "nsfw": false,
+        "default_message_notifications": 0,
+        "channels": [
+          {
+            "type": 4,
+            "position": 0,
+            "permission_overwrites": [],
+            "name": "Iobzilw dy xozws",
+            "id": "301586101597943253"
+          },
+          {
+            "type": 0,
+            "topic": null,
+            "rate_limit_per_user": 0,
+            "position": 0,
+            "permission_overwrites": [],
+            "parent_id": "762413533519405175",
+            "name": "jvbbbtj",
+            "last_message_id": "639290034395582184",
+            "id": "694154522667991107"
+          }
+        ],
+        "premium_progress_bar_enabled": false,
+        "owner_id": "559977710378538976",
+        "stage_instances": [],
+        "members": [
+          {
+            "user": {
+              "username": "Llnse",
+              "public_flags": 65536,
+              "id": "709302221716954539",
+              "discriminator": "3432",
+              "bot": true,
+              "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+            },
+            "roles": ["620555198489573629"],
+            "mute": false,
+            "joined_at": "2021-10-10T08:15:33.053Z",
+            "hoisted_role": null,
+            "deaf": false
+          }
+        ],
+        "afk_channel_id": null
+      }
+    }
+  },
+  "id": "3765"
+}

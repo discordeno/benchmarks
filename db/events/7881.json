@@ -1,1 +1,34 @@
-{"0":{"shardId":6,"payload":{"t":"GUILD_MEMBER_UPDATE","s":1109,"op":0,"d":{"user":{"username":"NQQ7","public_flags":65536,"id":"178249486978341327","discriminator":"8191","bot":true,"avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["409274921521303344","364457283913502126","759056936053057641","650131838473427489"],"premium_since":null,"pending":false,"nick":"Ddzb Awa6","joined_at":"2021-10-10T08:16:07.432Z","is_pending":false,"guild_id":"486682842071417431","avatar":null}}},"id":"7881"}
+{
+  "0": {
+    "shardId": 6,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 1109,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "NQQ7",
+          "public_flags": 65536,
+          "id": "178249486978341327",
+          "discriminator": "8191",
+          "bot": true,
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "roles": [
+          "409274921521303344",
+          "364457283913502126",
+          "759056936053057641",
+          "650131838473427489"
+        ],
+        "premium_since": null,
+        "pending": false,
+        "nick": "Ddzb Awa6",
+        "joined_at": "2021-10-10T08:16:07.432Z",
+        "is_pending": false,
+        "guild_id": "486682842071417431",
+        "avatar": null
+      }
+    }
+  },
+  "id": "7881"
+}

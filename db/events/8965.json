@@ -1,1 +1,45 @@
-{"0":{"shardId":0,"payload":{"t":"MESSAGE_CREATE","s":1172,"op":0,"d":{"type":0,"tts":false,"timestamp":"2021-10-10T08:16:16.193Z","referenced_message":null,"pinned":false,"nonce":"623433492953641959","mentions":[],"mention_roles":[],"mention_everyone":false,"member":{"roles":["139025272260579658"],"mute":false,"joined_at":"2021-10-10T08:16:16.193Z","hoisted_role":"685165158269419914","deaf":false},"id":"461210230456275883","flags":0,"embeds":[],"edited_timestamp":null,"content":"Ja xxqp","components":[],"channel_id":"544865560431871672","author":{"username":"Txdu","public_flags":64,"id":"689344978810030176","discriminator":"9095","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"attachments":[],"guild_id":"490346606420112553"}}},"id":"8965"}
+{
+  "0": {
+    "shardId": 0,
+    "payload": {
+      "t": "MESSAGE_CREATE",
+      "s": 1172,
+      "op": 0,
+      "d": {
+        "type": 0,
+        "tts": false,
+        "timestamp": "2021-10-10T08:16:16.193Z",
+        "referenced_message": null,
+        "pinned": false,
+        "nonce": "623433492953641959",
+        "mentions": [],
+        "mention_roles": [],
+        "mention_everyone": false,
+        "member": {
+          "roles": ["139025272260579658"],
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:16.193Z",
+          "hoisted_role": "685165158269419914",
+          "deaf": false
+        },
+        "id": "461210230456275883",
+        "flags": 0,
+        "embeds": [],
+        "edited_timestamp": null,
+        "content": "Ja xxqp",
+        "components": [],
+        "channel_id": "544865560431871672",
+        "author": {
+          "username": "Txdu",
+          "public_flags": 64,
+          "id": "689344978810030176",
+          "discriminator": "9095",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "attachments": [],
+        "guild_id": "490346606420112553"
+      }
+    }
+  },
+  "id": "8965"
+}

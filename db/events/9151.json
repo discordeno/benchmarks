@@ -1,1 +1,30 @@
-{"0":{"shardId":5,"payload":{"t":"GUILD_MEMBER_UPDATE","s":1116,"op":0,"d":{"user":{"username":"VzkkttHozJqddpyv","id":"426357936195350789","discriminator":"7082","avatar":null},"roles":[],"premium_since":null,"pending":false,"nick":null,"mute":false,"joined_at":"2021-10-10T08:16:17.708Z","is_pending":false,"hoisted_role":null,"guild_id":"748888283193054813","deaf":false,"avatar":null}}},"id":"9151"}
+{
+  "0": {
+    "shardId": 5,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 1116,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "VzkkttHozJqddpyv",
+          "id": "426357936195350789",
+          "discriminator": "7082",
+          "avatar": null
+        },
+        "roles": [],
+        "premium_since": null,
+        "pending": false,
+        "nick": null,
+        "mute": false,
+        "joined_at": "2021-10-10T08:16:17.708Z",
+        "is_pending": false,
+        "hoisted_role": null,
+        "guild_id": "748888283193054813",
+        "deaf": false,
+        "avatar": null
+      }
+    }
+  },
+  "id": "9151"
+}

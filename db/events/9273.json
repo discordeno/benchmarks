@@ -1,1 +1,43 @@
-{"0":{"shardId":7,"payload":{"t":"VOICE_STATE_UPDATE","s":1096,"op":0,"d":{"member":{"user":{"username":"IKX pVYP FL","public_flags":0,"id":"204702358752540273","discriminator":"3248","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":[],"premium_since":null,"pending":false,"nick":null,"mute":false,"joined_at":"2021-10-10T08:16:19.415Z","is_pending":false,"hoisted_role":null,"deaf":false,"avatar":null},"user_id":"693963752019723215","suppress":false,"session_id":"m8mq778q659846k36778479946z65169","self_video":false,"self_mute":false,"self_deaf":false,"request_to_speak_timestamp":null,"mute":false,"guild_id":"226886171873500876","deaf":false,"channel_id":null}}},"id":"9273"}
+{
+  "0": {
+    "shardId": 7,
+    "payload": {
+      "t": "VOICE_STATE_UPDATE",
+      "s": 1096,
+      "op": 0,
+      "d": {
+        "member": {
+          "user": {
+            "username": "IKX pVYP FL",
+            "public_flags": 0,
+            "id": "204702358752540273",
+            "discriminator": "3248",
+            "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+          },
+          "roles": [],
+          "premium_since": null,
+          "pending": false,
+          "nick": null,
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:19.415Z",
+          "is_pending": false,
+          "hoisted_role": null,
+          "deaf": false,
+          "avatar": null
+        },
+        "user_id": "693963752019723215",
+        "suppress": false,
+        "session_id": "m8mq778q659846k36778479946z65169",
+        "self_video": false,
+        "self_mute": false,
+        "self_deaf": false,
+        "request_to_speak_timestamp": null,
+        "mute": false,
+        "guild_id": "226886171873500876",
+        "deaf": false,
+        "channel_id": null
+      }
+    }
+  },
+  "id": "9273"
+}

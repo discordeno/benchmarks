@@ -1,1 +1,34 @@
-{"0":{"shardId":6,"payload":{"t":"GUILD_MEMBER_UPDATE","s":1100,"op":0,"d":{"user":{"username":"Keqo","public_flags":65536,"id":"421500567286010533","discriminator":"7029","bot":true,"avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["772770544914939618","948964154870229246","704227757693471030","175903858197862656"],"premium_since":null,"pending":false,"nick":null,"joined_at":"2021-10-10T08:16:07.363Z","is_pending":false,"guild_id":"462226131612328638","avatar":null}}},"id":"7862"}
+{
+  "0": {
+    "shardId": 6,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 1100,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "Keqo",
+          "public_flags": 65536,
+          "id": "421500567286010533",
+          "discriminator": "7029",
+          "bot": true,
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "roles": [
+          "772770544914939618",
+          "948964154870229246",
+          "704227757693471030",
+          "175903858197862656"
+        ],
+        "premium_since": null,
+        "pending": false,
+        "nick": null,
+        "joined_at": "2021-10-10T08:16:07.363Z",
+        "is_pending": false,
+        "guild_id": "462226131612328638",
+        "avatar": null
+      }
+    }
+  },
+  "id": "7862"
+}

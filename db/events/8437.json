@@ -1,1 +1,58 @@
-{"0":{"shardId":5,"payload":{"t":"VOICE_STATE_UPDATE","s":1101,"op":0,"d":{"member":{"user":{"username":"wekakimmallmnhg","public_flags":0,"id":"239202792894806716","discriminator":"7501","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["651607562341733704","237722035271006960","391416527614092323","397261554462093081","250055244935760232","100063508194131211","285487121718633427","893672893773277323","759197572648229453","563084999740067934","154030253114582271","129392659449064939","923119816526809483","510626953701439459"],"premium_since":null,"pending":false,"nick":"fuvvkr","mute":false,"joined_at":"2021-10-10T08:16:12.068Z","is_pending":false,"hoisted_role":"498046162958865826","deaf":false,"avatar":null},"user_id":"849190122090099492","suppress":false,"session_id":"559c45j5342892811p5764q4cdl3w8v2","self_video":false,"self_mute":true,"self_deaf":false,"request_to_speak_timestamp":null,"mute":false,"guild_id":"422493989916643915","deaf":false,"channel_id":"826978044342454673"}}},"id":"8437"}
+{
+  "0": {
+    "shardId": 5,
+    "payload": {
+      "t": "VOICE_STATE_UPDATE",
+      "s": 1101,
+      "op": 0,
+      "d": {
+        "member": {
+          "user": {
+            "username": "wekakimmallmnhg",
+            "public_flags": 0,
+            "id": "239202792894806716",
+            "discriminator": "7501",
+            "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+          },
+          "roles": [
+            "651607562341733704",
+            "237722035271006960",
+            "391416527614092323",
+            "397261554462093081",
+            "250055244935760232",
+            "100063508194131211",
+            "285487121718633427",
+            "893672893773277323",
+            "759197572648229453",
+            "563084999740067934",
+            "154030253114582271",
+            "129392659449064939",
+            "923119816526809483",
+            "510626953701439459"
+          ],
+          "premium_since": null,
+          "pending": false,
+          "nick": "fuvvkr",
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:12.068Z",
+          "is_pending": false,
+          "hoisted_role": "498046162958865826",
+          "deaf": false,
+          "avatar": null
+        },
+        "user_id": "849190122090099492",
+        "suppress": false,
+        "session_id": "559c45j5342892811p5764q4cdl3w8v2",
+        "self_video": false,
+        "self_mute": true,
+        "self_deaf": false,
+        "request_to_speak_timestamp": null,
+        "mute": false,
+        "guild_id": "422493989916643915",
+        "deaf": false,
+        "channel_id": "826978044342454673"
+      }
+    }
+  },
+  "id": "8437"
+}

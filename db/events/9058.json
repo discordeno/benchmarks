@@ -1,1 +1,34 @@
-{"0":{"shardId":6,"payload":{"t":"GUILD_MEMBER_UPDATE","s":1140,"op":0,"d":{"user":{"username":"CGD8","public_flags":65536,"id":"167461754106303931","discriminator":"2678","bot":true,"avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["887485384220926810","827227629894394798","380183232564586298","746261650185120384"],"premium_since":null,"pending":false,"nick":"Vple Vel2","joined_at":"2021-10-10T08:16:16.766Z","is_pending":false,"guild_id":"579141413436155883","avatar":null}}},"id":"9058"}
+{
+  "0": {
+    "shardId": 6,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 1140,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "CGD8",
+          "public_flags": 65536,
+          "id": "167461754106303931",
+          "discriminator": "2678",
+          "bot": true,
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "roles": [
+          "887485384220926810",
+          "827227629894394798",
+          "380183232564586298",
+          "746261650185120384"
+        ],
+        "premium_since": null,
+        "pending": false,
+        "nick": "Vple Vel2",
+        "joined_at": "2021-10-10T08:16:16.766Z",
+        "is_pending": false,
+        "guild_id": "579141413436155883",
+        "avatar": null
+      }
+    }
+  },
+  "id": "9058"
+}

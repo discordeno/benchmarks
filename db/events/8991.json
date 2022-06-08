@@ -1,1 +1,61 @@
-{"0":{"shardId":7,"payload":{"t":"MESSAGE_CREATE","s":1074,"op":0,"d":{"type":0,"tts":false,"timestamp":"2021-10-10T08:16:16.333Z","referenced_message":null,"pinned":false,"mentions":[],"mention_roles":[],"mention_everyone":false,"member":{"roles":["246776734403043569","787391094432407997","146551621314364727"],"mute":false,"joined_at":"2021-10-10T08:16:16.333Z","hoisted_role":"701200775559703649","deaf":false},"id":"267537818749778210","flags":0,"embeds":[{"type":"csfb","thumbnail":{"width":600,"url":"wshehvbqflcfexbyhgpjFD5otkMjbov","proxy_url":"zszzjyxfvjpbormmcdt8ytydwtuupswajderzpsvlkbor5tsbCIk1bxxeMSlKalcZautj6fbym2SvJYXTFKvJFEUfjpuykzisdxyezmykkiYC8ozpJtlfg","height":900},"description":"2021-10-10T08:16:16.333Z","color":8391427}],"edited_timestamp":null,"content":"","components":[],"channel_id":"940332468221049705","author":{"username":"JpgKgc","public_flags":65536,"id":"192875453776944123","discriminator":"2450","bot":true,"avatar":"eae5905ad2d18d7c8deca20478b088b5"},"attachments":[],"guild_id":"439555275091930672"}}},"id":"8991"}
+{
+  "0": {
+    "shardId": 7,
+    "payload": {
+      "t": "MESSAGE_CREATE",
+      "s": 1074,
+      "op": 0,
+      "d": {
+        "type": 0,
+        "tts": false,
+        "timestamp": "2021-10-10T08:16:16.333Z",
+        "referenced_message": null,
+        "pinned": false,
+        "mentions": [],
+        "mention_roles": [],
+        "mention_everyone": false,
+        "member": {
+          "roles": [
+            "246776734403043569",
+            "787391094432407997",
+            "146551621314364727"
+          ],
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:16.333Z",
+          "hoisted_role": "701200775559703649",
+          "deaf": false
+        },
+        "id": "267537818749778210",
+        "flags": 0,
+        "embeds": [
+          {
+            "type": "csfb",
+            "thumbnail": {
+              "width": 600,
+              "url": "wshehvbqflcfexbyhgpjFD5otkMjbov",
+              "proxy_url": "zszzjyxfvjpbormmcdt8ytydwtuupswajderzpsvlkbor5tsbCIk1bxxeMSlKalcZautj6fbym2SvJYXTFKvJFEUfjpuykzisdxyezmykkiYC8ozpJtlfg",
+              "height": 900
+            },
+            "description": "2021-10-10T08:16:16.333Z",
+            "color": 8391427
+          }
+        ],
+        "edited_timestamp": null,
+        "content": "",
+        "components": [],
+        "channel_id": "940332468221049705",
+        "author": {
+          "username": "JpgKgc",
+          "public_flags": 65536,
+          "id": "192875453776944123",
+          "discriminator": "2450",
+          "bot": true,
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "attachments": [],
+        "guild_id": "439555275091930672"
+      }
+    }
+  },
+  "id": "8991"
+}

@@ -1,1 +1,21 @@
-{"0":{"shardId":0,"payload":{"t":"GUILD_MEMBER_REMOVE","s":1117,"op":0,"d":{"user":{"username":"LolzbdxPvcErwnu","public_flags":256,"id":"643432517748782212","discriminator":"1677","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"guild_id":"917373268896902074"}}},"id":"1792"}
+{
+  "0": {
+    "shardId": 0,
+    "payload": {
+      "t": "GUILD_MEMBER_REMOVE",
+      "s": 1117,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "LolzbdxPvcErwnu",
+          "public_flags": 256,
+          "id": "643432517748782212",
+          "discriminator": "1677",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "guild_id": "917373268896902074"
+      }
+    }
+  },
+  "id": "1792"
+}

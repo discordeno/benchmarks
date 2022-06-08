@@ -1,1 +1,57 @@
-{"0":{"shardId":0,"payload":{"t":"MESSAGE_CREATE","s":1093,"op":0,"d":{"type":0,"tts":false,"timestamp":"2021-10-10T08:15:11.848Z","referenced_message":null,"pinned":false,"nonce":"179700154157233106","mentions":[],"mention_roles":[],"mention_everyone":false,"member":{"roles":["502025695284441768","160657753188864938","839959876679856230","972404839077366238","862965594260687438","105946414932172058","835851820799724608","991571257556623851","677044165880217076","624525309455787937"],"nick":"ycptm","mute":false,"joined_at":"2021-10-10T08:15:11.848Z","hoisted_role":"194487462515476177","deaf":false},"id":"620691713657250696","flags":0,"embeds":[],"edited_timestamp":null,"content":"aei","components":[],"channel_id":"408587024836189346","author":{"username":"O8","public_flags":0,"id":"375340070734530574","discriminator":"7214","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"attachments":[],"guild_id":"946515181406263905"}}},"id":"1140"}
+{
+  "0": {
+    "shardId": 0,
+    "payload": {
+      "t": "MESSAGE_CREATE",
+      "s": 1093,
+      "op": 0,
+      "d": {
+        "type": 0,
+        "tts": false,
+        "timestamp": "2021-10-10T08:15:11.848Z",
+        "referenced_message": null,
+        "pinned": false,
+        "nonce": "179700154157233106",
+        "mentions": [],
+        "mention_roles": [],
+        "mention_everyone": false,
+        "member": {
+          "roles": [
+            "502025695284441768",
+            "160657753188864938",
+            "839959876679856230",
+            "972404839077366238",
+            "862965594260687438",
+            "105946414932172058",
+            "835851820799724608",
+            "991571257556623851",
+            "677044165880217076",
+            "624525309455787937"
+          ],
+          "nick": "ycptm",
+          "mute": false,
+          "joined_at": "2021-10-10T08:15:11.848Z",
+          "hoisted_role": "194487462515476177",
+          "deaf": false
+        },
+        "id": "620691713657250696",
+        "flags": 0,
+        "embeds": [],
+        "edited_timestamp": null,
+        "content": "aei",
+        "components": [],
+        "channel_id": "408587024836189346",
+        "author": {
+          "username": "O8",
+          "public_flags": 0,
+          "id": "375340070734530574",
+          "discriminator": "7214",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "attachments": [],
+        "guild_id": "946515181406263905"
+      }
+    }
+  },
+  "id": "1140"
+}
