@@ -1,5 +1,9 @@
 import { Sabr, SabrTable } from "https://deno.land/x/sabr@1.1.4/mod.ts";
-import { cache, startBot, ws } from "https://deno.land/x/discordeno@12.0.1/mod.ts";
+import {
+  cache,
+  startBot,
+  ws,
+} from "https://deno.land/x/discordeno@12.0.1/mod.ts";
 import { TOKEN } from "./configs.ts";
 import {
   hideDate,
@@ -56,8 +60,9 @@ ws.log = function (type, data: any) {
 
     // IF ITS A NUMBER MASK NUMBER
     if (numberreg.test(value)) return hideSnowflake(value);
-    if (["icon", "banner", "splash", "avatar"].includes(key))
+    if (["icon", "banner", "splash", "avatar"].includes(key)) {
       return hideHash(value);
+    }
     // IF ITS DATE REGEX
     if (Date.parse(value)) return hideDate();
 

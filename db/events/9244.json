@@ -1,1 +1,61 @@
-{"0":{"shardId":6,"payload":{"t":"MESSAGE_CREATE","s":1154,"op":0,"d":{"type":0,"tts":false,"timestamp":"2021-10-10T08:16:19.049Z","referenced_message":null,"pinned":false,"nonce":"171881097663787659","mentions":[],"mention_roles":[],"mention_everyone":false,"member":{"roles":["790273887364720705","374078090447762128","692009052647897024","104569500038081852","867898814063338103","107223778233738415","710421227836247152","359546002736507815","385624072669451519","109127504944611321"],"premium_since":null,"pending":false,"nick":"fsxr","mute":false,"joined_at":"2021-10-10T08:16:19.049Z","is_pending":false,"hoisted_role":"732285344081576438","deaf":false,"avatar":null},"id":"874792598824979279","flags":0,"embeds":[],"edited_timestamp":null,"content":"znlt","components":[],"channel_id":"331642303793494962","author":{"username":"Mvmljt93592","public_flags":0,"id":"659247921695304000","discriminator":"6591","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"attachments":[],"guild_id":"300078158019086377"}}},"id":"9244"}
+{
+  "0": {
+    "shardId": 6,
+    "payload": {
+      "t": "MESSAGE_CREATE",
+      "s": 1154,
+      "op": 0,
+      "d": {
+        "type": 0,
+        "tts": false,
+        "timestamp": "2021-10-10T08:16:19.049Z",
+        "referenced_message": null,
+        "pinned": false,
+        "nonce": "171881097663787659",
+        "mentions": [],
+        "mention_roles": [],
+        "mention_everyone": false,
+        "member": {
+          "roles": [
+            "790273887364720705",
+            "374078090447762128",
+            "692009052647897024",
+            "104569500038081852",
+            "867898814063338103",
+            "107223778233738415",
+            "710421227836247152",
+            "359546002736507815",
+            "385624072669451519",
+            "109127504944611321"
+          ],
+          "premium_since": null,
+          "pending": false,
+          "nick": "fsxr",
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:19.049Z",
+          "is_pending": false,
+          "hoisted_role": "732285344081576438",
+          "deaf": false,
+          "avatar": null
+        },
+        "id": "874792598824979279",
+        "flags": 0,
+        "embeds": [],
+        "edited_timestamp": null,
+        "content": "znlt",
+        "components": [],
+        "channel_id": "331642303793494962",
+        "author": {
+          "username": "Mvmljt93592",
+          "public_flags": 0,
+          "id": "659247921695304000",
+          "discriminator": "6591",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "attachments": [],
+        "guild_id": "300078158019086377"
+      }
+    }
+  },
+  "id": "9244"
+}

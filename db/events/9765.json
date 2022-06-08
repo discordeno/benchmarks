@@ -1,1 +1,26 @@
-{"0":{"shardId":7,"payload":{"t":"GUILD_MEMBER_UPDATE","s":1105,"op":0,"d":{"user":{"username":"v gauxse kmxy","public_flags":0,"id":"704525643607091803","discriminator":"2849","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":[],"mute":false,"joined_at":"2021-10-10T08:16:23.815Z","hoisted_role":null,"guild_id":"186219563852827789","deaf":false}}},"id":"9765"}
+{
+  "0": {
+    "shardId": 7,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 1105,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "v gauxse kmxy",
+          "public_flags": 0,
+          "id": "704525643607091803",
+          "discriminator": "2849",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "roles": [],
+        "mute": false,
+        "joined_at": "2021-10-10T08:16:23.815Z",
+        "hoisted_role": null,
+        "guild_id": "186219563852827789",
+        "deaf": false
+      }
+    }
+  },
+  "id": "9765"
+}

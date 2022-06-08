@@ -1,1 +1,26 @@
-{"0":{"shardId":6,"payload":{"t":"GUILD_MEMBER_UPDATE","s":1155,"op":0,"d":{"user":{"username":"euvr bu mixq","public_flags":0,"id":"897298544470430825","discriminator":"2965","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["509626619708119705"],"mute":false,"joined_at":"2021-10-10T08:16:20.717Z","hoisted_role":"494106557996421201","guild_id":"544756419280924823","deaf":false}}},"id":"9393"}
+{
+  "0": {
+    "shardId": 6,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 1155,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "euvr bu mixq",
+          "public_flags": 0,
+          "id": "897298544470430825",
+          "discriminator": "2965",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "roles": ["509626619708119705"],
+        "mute": false,
+        "joined_at": "2021-10-10T08:16:20.717Z",
+        "hoisted_role": "494106557996421201",
+        "guild_id": "544756419280924823",
+        "deaf": false
+      }
+    }
+  },
+  "id": "9393"
+}

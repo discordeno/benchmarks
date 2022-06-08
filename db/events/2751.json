@@ -1,1 +1,31 @@
-{"0":{"shardId":2,"payload":{"t":"GUILD_MEMBER_UPDATE","s":538,"op":0,"d":{"user":{"username":"Wheji","public_flags":0,"id":"858477011575179932","discriminator":"4452","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["825393013560900322","146038244900579556"],"premium_since":null,"pending":false,"nick":null,"mute":false,"joined_at":"2021-10-10T08:15:24.108Z","is_pending":false,"hoisted_role":null,"guild_id":"260081194491387616","deaf":false,"avatar":null}}},"id":"2751"}
+{
+  "0": {
+    "shardId": 2,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 538,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "Wheji",
+          "public_flags": 0,
+          "id": "858477011575179932",
+          "discriminator": "4452",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "roles": ["825393013560900322", "146038244900579556"],
+        "premium_since": null,
+        "pending": false,
+        "nick": null,
+        "mute": false,
+        "joined_at": "2021-10-10T08:15:24.108Z",
+        "is_pending": false,
+        "hoisted_role": null,
+        "guild_id": "260081194491387616",
+        "deaf": false,
+        "avatar": null
+      }
+    }
+  },
+  "id": "2751"
+}

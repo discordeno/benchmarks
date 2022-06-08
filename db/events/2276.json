@@ -1,1 +1,27 @@
-{"0":{"shardId":1,"payload":{"t":"GUILD_MEMBER_UPDATE","s":1072,"op":0,"d":{"user":{"username":"vgaghlhx","public_flags":65536,"id":"926369857361183959","discriminator":"7586","bot":true,"avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["926647354948977523","327833489621860555"],"mute":false,"joined_at":"2021-10-10T08:15:20.632Z","hoisted_role":"883165774426873025","guild_id":"780776175595350902","deaf":false}}},"id":"2276"}
+{
+  "0": {
+    "shardId": 1,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 1072,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "vgaghlhx",
+          "public_flags": 65536,
+          "id": "926369857361183959",
+          "discriminator": "7586",
+          "bot": true,
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "roles": ["926647354948977523", "327833489621860555"],
+        "mute": false,
+        "joined_at": "2021-10-10T08:15:20.632Z",
+        "hoisted_role": "883165774426873025",
+        "guild_id": "780776175595350902",
+        "deaf": false
+      }
+    }
+  },
+  "id": "2276"
+}

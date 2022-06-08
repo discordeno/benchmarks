@@ -1,1 +1,47 @@
-{"0":{"shardId":0,"payload":{"t":"VOICE_STATE_UPDATE","s":1123,"op":0,"d":{"member":{"user":{"username":"mpsxagx","id":"253102926888330280","discriminator":"1549","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["111778259257432157","331474670106979760","835707942511789758"],"premium_since":null,"pending":false,"nick":null,"mute":false,"joined_at":"2021-10-10T08:15:33.074Z","is_pending":false,"hoisted_role":"470168551496866139","deaf":false,"avatar":null},"user_id":"975161014676729308","suppress":false,"session_id":"5138w49818137b162626326gmnc7374c","self_video":false,"self_stream":true,"self_mute":false,"self_deaf":false,"request_to_speak_timestamp":null,"mute":false,"guild_id":"955566810683085931","deaf":false,"channel_id":"292788059392242425"}}},"id":"3769"}
+{
+  "0": {
+    "shardId": 0,
+    "payload": {
+      "t": "VOICE_STATE_UPDATE",
+      "s": 1123,
+      "op": 0,
+      "d": {
+        "member": {
+          "user": {
+            "username": "mpsxagx",
+            "id": "253102926888330280",
+            "discriminator": "1549",
+            "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+          },
+          "roles": [
+            "111778259257432157",
+            "331474670106979760",
+            "835707942511789758"
+          ],
+          "premium_since": null,
+          "pending": false,
+          "nick": null,
+          "mute": false,
+          "joined_at": "2021-10-10T08:15:33.074Z",
+          "is_pending": false,
+          "hoisted_role": "470168551496866139",
+          "deaf": false,
+          "avatar": null
+        },
+        "user_id": "975161014676729308",
+        "suppress": false,
+        "session_id": "5138w49818137b162626326gmnc7374c",
+        "self_video": false,
+        "self_stream": true,
+        "self_mute": false,
+        "self_deaf": false,
+        "request_to_speak_timestamp": null,
+        "mute": false,
+        "guild_id": "955566810683085931",
+        "deaf": false,
+        "channel_id": "292788059392242425"
+      }
+    }
+  },
+  "id": "3769"
+}

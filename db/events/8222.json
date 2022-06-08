@@ -1,1 +1,50 @@
-{"0":{"shardId":0,"payload":{"t":"CHANNEL_UPDATE","s":1155,"op":0,"d":{"user_limit":0,"type":2,"rtc_region":null,"position":29,"permission_overwrites":[{"type":1,"id":"681023340008542295","deny":"3","allow":"1340289"},{"type":0,"id":"842226112834250573","deny":"151866971","allow":"4"},{"type":0,"id":"704925862867430603","deny":"4237","allow":"9"}],"parent_id":"928742440433081852","nsfw":false,"name":"zcs9d88jetJRN","last_message_id":null,"id":"582055737460184573","guild_id":"330567738923443422","guild_hashes":{"version":1,"roles":{"hash":"TJjkrK74A4R"},"metadata":{"hash":"uuu4Q35h5yC"},"channels":{"hash":"FxoQJIhgfx7"}},"bitrate":64000}}},"id":"8222"}
+{
+  "0": {
+    "shardId": 0,
+    "payload": {
+      "t": "CHANNEL_UPDATE",
+      "s": 1155,
+      "op": 0,
+      "d": {
+        "user_limit": 0,
+        "type": 2,
+        "rtc_region": null,
+        "position": 29,
+        "permission_overwrites": [
+          {
+            "type": 1,
+            "id": "681023340008542295",
+            "deny": "3",
+            "allow": "1340289"
+          },
+          {
+            "type": 0,
+            "id": "842226112834250573",
+            "deny": "151866971",
+            "allow": "4"
+          },
+          {
+            "type": 0,
+            "id": "704925862867430603",
+            "deny": "4237",
+            "allow": "9"
+          }
+        ],
+        "parent_id": "928742440433081852",
+        "nsfw": false,
+        "name": "zcs9d88jetJRN",
+        "last_message_id": null,
+        "id": "582055737460184573",
+        "guild_id": "330567738923443422",
+        "guild_hashes": {
+          "version": 1,
+          "roles": { "hash": "TJjkrK74A4R" },
+          "metadata": { "hash": "uuu4Q35h5yC" },
+          "channels": { "hash": "FxoQJIhgfx7" }
+        },
+        "bitrate": 64000
+      }
+    }
+  },
+  "id": "8222"
+}

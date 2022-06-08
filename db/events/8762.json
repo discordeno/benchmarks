@@ -1,1 +1,37 @@
-{"0":{"shardId":2,"payload":{"t":"GUILD_MEMBER_UPDATE","s":984,"op":0,"d":{"user":{"username":"Evh Afjlpig","public_flags":128,"id":"789543701135041738","discriminator":"4764","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["274250167104479414","793289293396608797","728699730774918075","119003113984378814","865673621776794229","528574978807784763","660476271496800551","907015804015494143"],"premium_since":null,"pending":false,"nick":null,"joined_at":"2021-10-10T08:16:14.720Z","is_pending":false,"guild_id":"942033764714850753","avatar":null}}},"id":"8762"}
+{
+  "0": {
+    "shardId": 2,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 984,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "Evh Afjlpig",
+          "public_flags": 128,
+          "id": "789543701135041738",
+          "discriminator": "4764",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "roles": [
+          "274250167104479414",
+          "793289293396608797",
+          "728699730774918075",
+          "119003113984378814",
+          "865673621776794229",
+          "528574978807784763",
+          "660476271496800551",
+          "907015804015494143"
+        ],
+        "premium_since": null,
+        "pending": false,
+        "nick": null,
+        "joined_at": "2021-10-10T08:16:14.720Z",
+        "is_pending": false,
+        "guild_id": "942033764714850753",
+        "avatar": null
+      }
+    }
+  },
+  "id": "8762"
+}

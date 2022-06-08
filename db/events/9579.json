@@ -1,1 +1,57 @@
-{"0":{"shardId":0,"payload":{"t":"MESSAGE_CREATE","s":1175,"op":0,"d":{"type":0,"tts":false,"timestamp":"2021-10-10T08:16:22.258Z","referenced_message":null,"pinned":false,"nonce":"194561927110445695","mentions":[],"mention_roles":[],"mention_everyone":false,"member":{"roles":["376105933894082343","576443925598083131","921382279861990817","640208757006639849","428791130264432089","921013116472098922","173106750152803605","590450336768014605","789224677591708376","226973824401967206"],"nick":"nfulh","mute":false,"joined_at":"2021-10-10T08:16:22.258Z","hoisted_role":"353597903938979122","deaf":false},"id":"961298176558683273","flags":0,"embeds":[],"edited_timestamp":null,"content":"qyi","components":[],"channel_id":"443397482190071510","author":{"username":"X5","public_flags":0,"id":"675417072550243901","discriminator":"9260","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"attachments":[],"guild_id":"509517001852974510"}}},"id":"9579"}
+{
+  "0": {
+    "shardId": 0,
+    "payload": {
+      "t": "MESSAGE_CREATE",
+      "s": 1175,
+      "op": 0,
+      "d": {
+        "type": 0,
+        "tts": false,
+        "timestamp": "2021-10-10T08:16:22.258Z",
+        "referenced_message": null,
+        "pinned": false,
+        "nonce": "194561927110445695",
+        "mentions": [],
+        "mention_roles": [],
+        "mention_everyone": false,
+        "member": {
+          "roles": [
+            "376105933894082343",
+            "576443925598083131",
+            "921382279861990817",
+            "640208757006639849",
+            "428791130264432089",
+            "921013116472098922",
+            "173106750152803605",
+            "590450336768014605",
+            "789224677591708376",
+            "226973824401967206"
+          ],
+          "nick": "nfulh",
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:22.258Z",
+          "hoisted_role": "353597903938979122",
+          "deaf": false
+        },
+        "id": "961298176558683273",
+        "flags": 0,
+        "embeds": [],
+        "edited_timestamp": null,
+        "content": "qyi",
+        "components": [],
+        "channel_id": "443397482190071510",
+        "author": {
+          "username": "X5",
+          "public_flags": 0,
+          "id": "675417072550243901",
+          "discriminator": "9260",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "attachments": [],
+        "guild_id": "509517001852974510"
+      }
+    }
+  },
+  "id": "9579"
+}

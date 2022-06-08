@@ -31,24 +31,24 @@ const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 export function hideEUDText(text: string) {
   return text
     ? text
-        .split("")
-        .map((character) => {
-          if (character === " ") return character;
-          if (numbers.includes(character)) return hideSnowflake(character);
+      .split("")
+      .map((character) => {
+        if (character === " ") return character;
+        if (numbers.includes(character)) return hideSnowflake(character);
 
-          const random = chooseRandom(alphabet);
-          return alphabet.includes(character) ? random : random.toLowerCase();
-        })
-        .join("")
+        const random = chooseRandom(alphabet);
+        return alphabet.includes(character) ? random : random.toLowerCase();
+      })
+      .join("")
     : text;
 }
 
 export function hideSnowflake(snowflake: string) {
   return snowflake
     ? snowflake
-        .split("")
-        .map((_, index) => chooseRandom(index ? numbers : numbers.slice(1)))
-        .join("")
+      .split("")
+      .map((_, index) => chooseRandom(index ? numbers : numbers.slice(1)))
+      .join("")
     : snowflake;
 }
 
@@ -68,7 +68,7 @@ export function chooseRandom<T>(array: T[]) {
 
 export function loopObject<T = {}>(
   obj: {},
-  handler: (value: unknown, key: string) => unknown
+  handler: (value: unknown, key: string) => unknown,
 ) {
   let res: Record<string, unknown> | unknown[] = {};
 

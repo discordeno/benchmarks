@@ -29,14 +29,16 @@ const results: {
 
 export async function memoryBenchmarks(
   bot: any,
-  options: { log: boolean; table: boolean } = { log: false, table: true }
+  options: { log: boolean; table: boolean } = { log: false, table: true },
 ) {
   async function runTest() {
     if (options.log) console.log(`[INFO] Loading json files.`);
 
     const events = await db.events.getAll(true);
 
-    if (options.log) console.log(`[INFO] DB files loaded into memory.`, events.length);
+    if (options.log) {
+      console.log(`[INFO] DB files loaded into memory.`, events.length);
+    }
     // Set the memory stats for when files are loaded in.
     results.loaded = Deno.memoryUsage();
 
@@ -61,7 +63,9 @@ export async function memoryBenchmarks(
         }
       }
     }
-    if (options.log) console.log(`[INFO] Processed ${counter.toLocaleString()} events.`);
+    if (options.log) {
+      console.log(`[INFO] Processed ${counter.toLocaleString()} events.`);
+    }
 
     // Set results for data once all events are processed
     results.processed = Deno.memoryUsage();
@@ -97,12 +101,16 @@ export async function memoryBenchmarks(
     },
     Cached: {
       RSS: `${(results.end.rss - results.loaded!.rss) / BYTES} MB`,
-      "Heap Used": `${(results.end.heapUsed - results.loaded!.heapUsed) / BYTES} MB`,
-      "Heap Total": `${(results.end.heapTotal - results.loaded!.heapTotal) / BYTES} MB`,
+      "Heap Used": `${
+        (results.end.heapUsed - results.loaded!.heapUsed) / BYTES
+      } MB`,
+      "Heap Total": `${
+        (results.end.heapTotal - results.loaded!.heapTotal) / BYTES
+      } MB`,
     },
   };
 
-  if (options.log)
+  if (options.log) {
     console.log(
       "channels",
       bot.channels.size.toLocaleString(),
@@ -115,8 +123,9 @@ export async function memoryBenchmarks(
       "messages",
       bot.messages.size.toLocaleString(),
       "presences",
-      bot.presences.size.toLocaleString()
+      bot.presences.size.toLocaleString(),
     );
+  }
 
   if (options.table) console.table(humanReadable);
 

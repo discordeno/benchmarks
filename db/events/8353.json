@@ -1,1 +1,59 @@
-{"0":{"shardId":3,"payload":{"t":"VOICE_STATE_UPDATE","s":1088,"op":0,"d":{"member":{"user":{"username":"KnhoEbbr","public_flags":128,"id":"572614581421775033","discriminator":"4708","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["740789490434310700","375185032330512416","599839996711926759","611554450818652969","653131203587819422","132933839856582464","506858109378853622","917384228904058433","747539495123322751","586909540240304145","363573501191670709","161771173917843099","861962649440791499","865888531182208935","918577869752564489"],"premium_since":null,"pending":false,"nick":"bbeap","mute":false,"joined_at":"2021-10-10T08:16:11.409Z","is_pending":false,"hoisted_role":"442401629568005388","deaf":false,"avatar":null},"user_id":"201969908063152885","suppress":false,"session_id":"87s11935172464l9tln9g858d676cb1e","self_video":false,"self_mute":false,"self_deaf":false,"request_to_speak_timestamp":null,"mute":false,"guild_id":"593516582240872343","deaf":false,"channel_id":null}}},"id":"8353"}
+{
+  "0": {
+    "shardId": 3,
+    "payload": {
+      "t": "VOICE_STATE_UPDATE",
+      "s": 1088,
+      "op": 0,
+      "d": {
+        "member": {
+          "user": {
+            "username": "KnhoEbbr",
+            "public_flags": 128,
+            "id": "572614581421775033",
+            "discriminator": "4708",
+            "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+          },
+          "roles": [
+            "740789490434310700",
+            "375185032330512416",
+            "599839996711926759",
+            "611554450818652969",
+            "653131203587819422",
+            "132933839856582464",
+            "506858109378853622",
+            "917384228904058433",
+            "747539495123322751",
+            "586909540240304145",
+            "363573501191670709",
+            "161771173917843099",
+            "861962649440791499",
+            "865888531182208935",
+            "918577869752564489"
+          ],
+          "premium_since": null,
+          "pending": false,
+          "nick": "bbeap",
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:11.409Z",
+          "is_pending": false,
+          "hoisted_role": "442401629568005388",
+          "deaf": false,
+          "avatar": null
+        },
+        "user_id": "201969908063152885",
+        "suppress": false,
+        "session_id": "87s11935172464l9tln9g858d676cb1e",
+        "self_video": false,
+        "self_mute": false,
+        "self_deaf": false,
+        "request_to_speak_timestamp": null,
+        "mute": false,
+        "guild_id": "593516582240872343",
+        "deaf": false,
+        "channel_id": null
+      }
+    }
+  },
+  "id": "8353"
+}

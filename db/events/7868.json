@@ -1,1 +1,36 @@
-{"0":{"shardId":6,"payload":{"t":"GUILD_MEMBER_UPDATE","s":1103,"op":0,"d":{"user":{"username":"Nyowk","public_flags":65536,"id":"505248174272117728","discriminator":"4932","bot":true,"avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["169718251201613200","839380585458089903","535071499669586659","618501903135420092","253450636650781292","126094793073406270"],"premium_since":null,"pending":false,"nick":null,"joined_at":"2021-10-10T08:16:07.381Z","is_pending":false,"guild_id":"791883833745220129","avatar":null}}},"id":"7868"}
+{
+  "0": {
+    "shardId": 6,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 1103,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "Nyowk",
+          "public_flags": 65536,
+          "id": "505248174272117728",
+          "discriminator": "4932",
+          "bot": true,
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "roles": [
+          "169718251201613200",
+          "839380585458089903",
+          "535071499669586659",
+          "618501903135420092",
+          "253450636650781292",
+          "126094793073406270"
+        ],
+        "premium_since": null,
+        "pending": false,
+        "nick": null,
+        "joined_at": "2021-10-10T08:16:07.381Z",
+        "is_pending": false,
+        "guild_id": "791883833745220129",
+        "avatar": null
+      }
+    }
+  },
+  "id": "7868"
+}

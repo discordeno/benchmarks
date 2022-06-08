@@ -1,1 +1,61 @@
-{"0":{"shardId":3,"payload":{"t":"MESSAGE_CREATE","s":1087,"op":0,"d":{"type":0,"tts":false,"timestamp":"2021-10-10T08:16:11.173Z","referenced_message":null,"pinned":false,"nonce":"424236886305097747","mentions":[],"mention_roles":[],"mention_everyone":false,"member":{"roles":["313145757486898467","393233195733853820","642554514933116975","298802612277920144","873845808287751486","638154450897219382","434168519261961181","928819748918033591","387516250222940361","276502579865191377"],"premium_since":null,"pending":false,"nick":"Sztpwdv","mute":false,"joined_at":"2021-10-10T08:16:11.173Z","is_pending":false,"hoisted_role":"624407127180872981","deaf":false,"avatar":null},"id":"635752307990596195","flags":0,"embeds":[],"edited_timestamp":null,"content":"yyypw zfkyn","components":[],"channel_id":"405828790543886986","author":{"username":"othgarv","public_flags":256,"id":"318016233295211323","discriminator":"3048","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"attachments":[],"guild_id":"625789597468983190"}}},"id":"8323"}
+{
+  "0": {
+    "shardId": 3,
+    "payload": {
+      "t": "MESSAGE_CREATE",
+      "s": 1087,
+      "op": 0,
+      "d": {
+        "type": 0,
+        "tts": false,
+        "timestamp": "2021-10-10T08:16:11.173Z",
+        "referenced_message": null,
+        "pinned": false,
+        "nonce": "424236886305097747",
+        "mentions": [],
+        "mention_roles": [],
+        "mention_everyone": false,
+        "member": {
+          "roles": [
+            "313145757486898467",
+            "393233195733853820",
+            "642554514933116975",
+            "298802612277920144",
+            "873845808287751486",
+            "638154450897219382",
+            "434168519261961181",
+            "928819748918033591",
+            "387516250222940361",
+            "276502579865191377"
+          ],
+          "premium_since": null,
+          "pending": false,
+          "nick": "Sztpwdv",
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:11.173Z",
+          "is_pending": false,
+          "hoisted_role": "624407127180872981",
+          "deaf": false,
+          "avatar": null
+        },
+        "id": "635752307990596195",
+        "flags": 0,
+        "embeds": [],
+        "edited_timestamp": null,
+        "content": "yyypw zfkyn",
+        "components": [],
+        "channel_id": "405828790543886986",
+        "author": {
+          "username": "othgarv",
+          "public_flags": 256,
+          "id": "318016233295211323",
+          "discriminator": "3048",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "attachments": [],
+        "guild_id": "625789597468983190"
+      }
+    }
+  },
+  "id": "8323"
+}
