@@ -1,1 +1,57 @@
-{"0":{"shardId":5,"payload":{"t":"MESSAGE_CREATE","s":1091,"op":0,"d":{"type":0,"tts":false,"timestamp":"2021-10-10T08:15:59.071Z","referenced_message":null,"pinned":false,"nonce":"637963981382320217","mentions":[],"mention_roles":[],"mention_everyone":false,"member":{"roles":["684824856570261035","609212754532569087","768562504635536105","342531380448517576","311447291789160459","869508114822080960"],"premium_since":null,"pending":false,"nick":"Ioklkx","mute":false,"joined_at":"2021-10-10T08:15:59.071Z","is_pending":false,"hoisted_role":"836606206408529278","deaf":false,"avatar":null},"id":"288089948632229945","flags":0,"embeds":[],"edited_timestamp":null,"content":"FI","components":[],"channel_id":"744986994610021629","author":{"username":"Qszmf","public_flags":0,"id":"147813061955927862","discriminator":"3156","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"attachments":[],"guild_id":"912398233289757467"}}},"id":"6861"}
+{
+  "0": {
+    "shardId": 5,
+    "payload": {
+      "t": "MESSAGE_CREATE",
+      "s": 1091,
+      "op": 0,
+      "d": {
+        "type": 0,
+        "tts": false,
+        "timestamp": "2021-10-10T08:15:59.071Z",
+        "referenced_message": null,
+        "pinned": false,
+        "nonce": "637963981382320217",
+        "mentions": [],
+        "mention_roles": [],
+        "mention_everyone": false,
+        "member": {
+          "roles": [
+            "684824856570261035",
+            "609212754532569087",
+            "768562504635536105",
+            "342531380448517576",
+            "311447291789160459",
+            "869508114822080960"
+          ],
+          "premium_since": null,
+          "pending": false,
+          "nick": "Ioklkx",
+          "mute": false,
+          "joined_at": "2021-10-10T08:15:59.071Z",
+          "is_pending": false,
+          "hoisted_role": "836606206408529278",
+          "deaf": false,
+          "avatar": null
+        },
+        "id": "288089948632229945",
+        "flags": 0,
+        "embeds": [],
+        "edited_timestamp": null,
+        "content": "FI",
+        "components": [],
+        "channel_id": "744986994610021629",
+        "author": {
+          "username": "Qszmf",
+          "public_flags": 0,
+          "id": "147813061955927862",
+          "discriminator": "3156",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "attachments": [],
+        "guild_id": "912398233289757467"
+      }
+    }
+  },
+  "id": "6861"
+}

@@ -1,1 +1,58 @@
-{"0":{"shardId":5,"payload":{"t":"VOICE_STATE_UPDATE","s":1095,"op":0,"d":{"member":{"user":{"username":"jjpulyaemdzfiyu","public_flags":0,"id":"997592126013214516","discriminator":"5712","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["764608656068784670","456134146384284924","351535481905272674","798453982389772903","565874128006657036","622334634123991727","298851699109541425","233483382203452352","335868066081129137","961442346964447976","117880519813362460","634846457302643115","662102619336913059","415631256376408761"],"premium_since":null,"pending":false,"nick":"ihzkia","mute":false,"joined_at":"2021-10-10T08:16:07.543Z","is_pending":false,"hoisted_role":"559339248477809680","deaf":false,"avatar":null},"user_id":"131499656339917934","suppress":false,"session_id":"297a48n1225659538w5294n6ezw7r4v1","self_video":false,"self_mute":false,"self_deaf":false,"request_to_speak_timestamp":null,"mute":false,"guild_id":"286941448653133813","deaf":false,"channel_id":"220840519682399775"}}},"id":"7893"}
+{
+  "0": {
+    "shardId": 5,
+    "payload": {
+      "t": "VOICE_STATE_UPDATE",
+      "s": 1095,
+      "op": 0,
+      "d": {
+        "member": {
+          "user": {
+            "username": "jjpulyaemdzfiyu",
+            "public_flags": 0,
+            "id": "997592126013214516",
+            "discriminator": "5712",
+            "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+          },
+          "roles": [
+            "764608656068784670",
+            "456134146384284924",
+            "351535481905272674",
+            "798453982389772903",
+            "565874128006657036",
+            "622334634123991727",
+            "298851699109541425",
+            "233483382203452352",
+            "335868066081129137",
+            "961442346964447976",
+            "117880519813362460",
+            "634846457302643115",
+            "662102619336913059",
+            "415631256376408761"
+          ],
+          "premium_since": null,
+          "pending": false,
+          "nick": "ihzkia",
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:07.543Z",
+          "is_pending": false,
+          "hoisted_role": "559339248477809680",
+          "deaf": false,
+          "avatar": null
+        },
+        "user_id": "131499656339917934",
+        "suppress": false,
+        "session_id": "297a48n1225659538w5294n6ezw7r4v1",
+        "self_video": false,
+        "self_mute": false,
+        "self_deaf": false,
+        "request_to_speak_timestamp": null,
+        "mute": false,
+        "guild_id": "286941448653133813",
+        "deaf": false,
+        "channel_id": "220840519682399775"
+      }
+    }
+  },
+  "id": "7893"
+}

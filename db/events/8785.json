@@ -1,1 +1,74 @@
-{"0":{"shardId":5,"payload":{"t":"CHANNEL_UPDATE","s":1113,"op":0,"d":{"user_limit":3,"type":2,"rtc_region":null,"position":1,"permission_overwrites":[{"type":0,"id":"206709501285344031","deny":"9","allow":"4316536"},{"type":0,"id":"497344535110019997","deny":"1","allow":"4009032"},{"type":0,"id":"106061846075507263","deny":"1","allow":"517890390"},{"type":0,"id":"833927089486785935","deny":"734928007","allow":"6"},{"type":1,"id":"283948834569895420","deny":"4","allow":"14823828"},{"type":0,"id":"114244207242492040","deny":"7","allow":"4557"},{"type":0,"id":"935991240663229655","deny":"5","allow":"4287079"}],"parent_id":"818424284457101896","nsfw":false,"name":"2021-10-10T08:16:14.918Z","last_message_id":null,"id":"363471221827116391","guild_id":"484956697782602841","guild_hashes":{"version":1,"roles":{"hash":"48A51xkwxpr"},"metadata":{"hash":"WdUEvNZt8uh"},"channels":{"hash":"U2CHG6VodLJ"}},"bitrate":64000}}},"id":"8785"}
+{
+  "0": {
+    "shardId": 5,
+    "payload": {
+      "t": "CHANNEL_UPDATE",
+      "s": 1113,
+      "op": 0,
+      "d": {
+        "user_limit": 3,
+        "type": 2,
+        "rtc_region": null,
+        "position": 1,
+        "permission_overwrites": [
+          {
+            "type": 0,
+            "id": "206709501285344031",
+            "deny": "9",
+            "allow": "4316536"
+          },
+          {
+            "type": 0,
+            "id": "497344535110019997",
+            "deny": "1",
+            "allow": "4009032"
+          },
+          {
+            "type": 0,
+            "id": "106061846075507263",
+            "deny": "1",
+            "allow": "517890390"
+          },
+          {
+            "type": 0,
+            "id": "833927089486785935",
+            "deny": "734928007",
+            "allow": "6"
+          },
+          {
+            "type": 1,
+            "id": "283948834569895420",
+            "deny": "4",
+            "allow": "14823828"
+          },
+          {
+            "type": 0,
+            "id": "114244207242492040",
+            "deny": "7",
+            "allow": "4557"
+          },
+          {
+            "type": 0,
+            "id": "935991240663229655",
+            "deny": "5",
+            "allow": "4287079"
+          }
+        ],
+        "parent_id": "818424284457101896",
+        "nsfw": false,
+        "name": "2021-10-10T08:16:14.918Z",
+        "last_message_id": null,
+        "id": "363471221827116391",
+        "guild_id": "484956697782602841",
+        "guild_hashes": {
+          "version": 1,
+          "roles": { "hash": "48A51xkwxpr" },
+          "metadata": { "hash": "WdUEvNZt8uh" },
+          "channels": { "hash": "U2CHG6VodLJ" }
+        },
+        "bitrate": 64000
+      }
+    }
+  },
+  "id": "8785"
+}

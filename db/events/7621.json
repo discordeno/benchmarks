@@ -1,1 +1,41 @@
-{"0":{"shardId":1,"payload":{"t":"MESSAGE_REACTION_ADD","s":1112,"op":0,"d":{"user_id":"196026686509519585","message_id":"664157648565086642","member":{"user":{"username":"ZI8Y1","id":"632425106953031492","discriminator":"4622","avatar":null},"roles":["988544596279341567","649222722408958932","619438951411102236","405133268647693698","940741889682840785"],"premium_since":null,"pending":false,"nick":null,"mute":false,"joined_at":"2021-10-10T08:16:05.850Z","is_pending":false,"hoisted_role":null,"deaf":false},"emoji":{"name":"BbjcggyfBgurulBhAwy","id":"905940911457817546"},"channel_id":"135659460756312259","guild_id":"779646851065401685"}}},"id":"7621"}
+{
+  "0": {
+    "shardId": 1,
+    "payload": {
+      "t": "MESSAGE_REACTION_ADD",
+      "s": 1112,
+      "op": 0,
+      "d": {
+        "user_id": "196026686509519585",
+        "message_id": "664157648565086642",
+        "member": {
+          "user": {
+            "username": "ZI8Y1",
+            "id": "632425106953031492",
+            "discriminator": "4622",
+            "avatar": null
+          },
+          "roles": [
+            "988544596279341567",
+            "649222722408958932",
+            "619438951411102236",
+            "405133268647693698",
+            "940741889682840785"
+          ],
+          "premium_since": null,
+          "pending": false,
+          "nick": null,
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:05.850Z",
+          "is_pending": false,
+          "hoisted_role": null,
+          "deaf": false
+        },
+        "emoji": { "name": "BbjcggyfBgurulBhAwy", "id": "905940911457817546" },
+        "channel_id": "135659460756312259",
+        "guild_id": "779646851065401685"
+      }
+    }
+  },
+  "id": "7621"
+}

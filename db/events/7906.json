@@ -1,1 +1,34 @@
-{"0":{"shardId":6,"payload":{"t":"GUILD_MEMBER_UPDATE","s":1121,"op":0,"d":{"user":{"username":"Sbic","public_flags":65536,"id":"881710607313563752","discriminator":"5345","bot":true,"avatar":"eae5905ad2d18d7c8deca20478b088b5"},"roles":["140755348715308672","976358991824480895","234609033883925379","312610742916290829"],"premium_since":null,"pending":false,"nick":null,"joined_at":"2021-10-10T08:16:07.641Z","is_pending":false,"guild_id":"395659714435372470","avatar":null}}},"id":"7906"}
+{
+  "0": {
+    "shardId": 6,
+    "payload": {
+      "t": "GUILD_MEMBER_UPDATE",
+      "s": 1121,
+      "op": 0,
+      "d": {
+        "user": {
+          "username": "Sbic",
+          "public_flags": 65536,
+          "id": "881710607313563752",
+          "discriminator": "5345",
+          "bot": true,
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "roles": [
+          "140755348715308672",
+          "976358991824480895",
+          "234609033883925379",
+          "312610742916290829"
+        ],
+        "premium_since": null,
+        "pending": false,
+        "nick": null,
+        "joined_at": "2021-10-10T08:16:07.641Z",
+        "is_pending": false,
+        "guild_id": "395659714435372470",
+        "avatar": null
+      }
+    }
+  },
+  "id": "7906"
+}

@@ -1,1 +1,61 @@
-{"0":{"shardId":6,"payload":{"t":"MESSAGE_CREATE","s":1143,"op":0,"d":{"type":0,"tts":false,"timestamp":"2021-10-10T08:16:16.910Z","referenced_message":null,"pinned":false,"nonce":"967566130377048484","mentions":[],"mention_roles":[],"mention_everyone":false,"member":{"roles":["976916831023025496","137672834927078298","914323080733804975","514550948275784541","276003105364458151","919615188614056533","667129538197589640","938000886692375635","152823544299966268","855174182883376622"],"premium_since":null,"pending":false,"nick":"ytwb","mute":false,"joined_at":"2021-10-10T08:16:16.910Z","is_pending":false,"hoisted_role":"883769655045122548","deaf":false,"avatar":null},"id":"700831946629118244","flags":0,"embeds":[],"edited_timestamp":null,"content":"bv","components":[],"channel_id":"181118580425946179","author":{"username":"Faexio58391","public_flags":0,"id":"231567781348961534","discriminator":"3866","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"attachments":[],"guild_id":"621289960161173174"}}},"id":"9071"}
+{
+  "0": {
+    "shardId": 6,
+    "payload": {
+      "t": "MESSAGE_CREATE",
+      "s": 1143,
+      "op": 0,
+      "d": {
+        "type": 0,
+        "tts": false,
+        "timestamp": "2021-10-10T08:16:16.910Z",
+        "referenced_message": null,
+        "pinned": false,
+        "nonce": "967566130377048484",
+        "mentions": [],
+        "mention_roles": [],
+        "mention_everyone": false,
+        "member": {
+          "roles": [
+            "976916831023025496",
+            "137672834927078298",
+            "914323080733804975",
+            "514550948275784541",
+            "276003105364458151",
+            "919615188614056533",
+            "667129538197589640",
+            "938000886692375635",
+            "152823544299966268",
+            "855174182883376622"
+          ],
+          "premium_since": null,
+          "pending": false,
+          "nick": "ytwb",
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:16.910Z",
+          "is_pending": false,
+          "hoisted_role": "883769655045122548",
+          "deaf": false,
+          "avatar": null
+        },
+        "id": "700831946629118244",
+        "flags": 0,
+        "embeds": [],
+        "edited_timestamp": null,
+        "content": "bv",
+        "components": [],
+        "channel_id": "181118580425946179",
+        "author": {
+          "username": "Faexio58391",
+          "public_flags": 0,
+          "id": "231567781348961534",
+          "discriminator": "3866",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "attachments": [],
+        "guild_id": "621289960161173174"
+      }
+    }
+  },
+  "id": "9071"
+}

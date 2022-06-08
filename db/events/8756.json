@@ -1,1 +1,74 @@
-{"0":{"shardId":5,"payload":{"t":"CHANNEL_UPDATE","s":1109,"op":0,"d":{"user_limit":3,"type":2,"rtc_region":null,"position":1,"permission_overwrites":[{"type":0,"id":"853135974936309905","deny":"5","allow":"4048315"},{"type":0,"id":"170515368498157199","deny":"9","allow":"3695525"},{"type":0,"id":"769868033925031725","deny":"5","allow":"835792133"},{"type":0,"id":"172667992139619182","deny":"686297201","allow":"1"},{"type":1,"id":"259260741529856454","deny":"6","allow":"33203270"},{"type":0,"id":"835039698277624690","deny":"4","allow":"5105"},{"type":0,"id":"979234109874475384","deny":"2","allow":"9028998"}],"parent_id":"353250461740069702","nsfw":false,"name":"b","last_message_id":null,"id":"561411057769318136","guild_id":"392669390445603174","guild_hashes":{"version":1,"roles":{"hash":"91J93ifefbd"},"metadata":{"hash":"AsYAhSRh3vg"},"channels":{"hash":"yHKa8YSvIgq"}},"bitrate":64000}}},"id":"8756"}
+{
+  "0": {
+    "shardId": 5,
+    "payload": {
+      "t": "CHANNEL_UPDATE",
+      "s": 1109,
+      "op": 0,
+      "d": {
+        "user_limit": 3,
+        "type": 2,
+        "rtc_region": null,
+        "position": 1,
+        "permission_overwrites": [
+          {
+            "type": 0,
+            "id": "853135974936309905",
+            "deny": "5",
+            "allow": "4048315"
+          },
+          {
+            "type": 0,
+            "id": "170515368498157199",
+            "deny": "9",
+            "allow": "3695525"
+          },
+          {
+            "type": 0,
+            "id": "769868033925031725",
+            "deny": "5",
+            "allow": "835792133"
+          },
+          {
+            "type": 0,
+            "id": "172667992139619182",
+            "deny": "686297201",
+            "allow": "1"
+          },
+          {
+            "type": 1,
+            "id": "259260741529856454",
+            "deny": "6",
+            "allow": "33203270"
+          },
+          {
+            "type": 0,
+            "id": "835039698277624690",
+            "deny": "4",
+            "allow": "5105"
+          },
+          {
+            "type": 0,
+            "id": "979234109874475384",
+            "deny": "2",
+            "allow": "9028998"
+          }
+        ],
+        "parent_id": "353250461740069702",
+        "nsfw": false,
+        "name": "b",
+        "last_message_id": null,
+        "id": "561411057769318136",
+        "guild_id": "392669390445603174",
+        "guild_hashes": {
+          "version": 1,
+          "roles": { "hash": "91J93ifefbd" },
+          "metadata": { "hash": "AsYAhSRh3vg" },
+          "channels": { "hash": "yHKa8YSvIgq" }
+        },
+        "bitrate": 64000
+      }
+    }
+  },
+  "id": "8756"
+}

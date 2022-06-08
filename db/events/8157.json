@@ -1,1 +1,57 @@
-{"0":{"shardId":6,"payload":{"t":"MESSAGE_CREATE","s":1131,"op":0,"d":{"type":0,"tts":false,"timestamp":"2021-10-10T08:16:09.690Z","referenced_message":null,"pinned":false,"nonce":"864948507057448819","mentions":[],"mention_roles":[],"mention_everyone":false,"member":{"roles":["500782990815927587","758007936936346117","986292546043885189","978903870086017695","764443125297299329","214471404254309401"],"premium_since":null,"pending":false,"nick":"cxzsrq","mute":false,"joined_at":"2021-10-10T08:16:09.690Z","is_pending":false,"hoisted_role":"246532723000153879","deaf":false,"avatar":null},"id":"248540240857876003","flags":0,"embeds":[],"edited_timestamp":null,"content":"FUO Dzqj","components":[],"channel_id":"967086344431513117","author":{"username":"oi","public_flags":0,"id":"849800000760023049","discriminator":"1994","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"attachments":[],"guild_id":"912957055963321574"}}},"id":"8157"}
+{
+  "0": {
+    "shardId": 6,
+    "payload": {
+      "t": "MESSAGE_CREATE",
+      "s": 1131,
+      "op": 0,
+      "d": {
+        "type": 0,
+        "tts": false,
+        "timestamp": "2021-10-10T08:16:09.690Z",
+        "referenced_message": null,
+        "pinned": false,
+        "nonce": "864948507057448819",
+        "mentions": [],
+        "mention_roles": [],
+        "mention_everyone": false,
+        "member": {
+          "roles": [
+            "500782990815927587",
+            "758007936936346117",
+            "986292546043885189",
+            "978903870086017695",
+            "764443125297299329",
+            "214471404254309401"
+          ],
+          "premium_since": null,
+          "pending": false,
+          "nick": "cxzsrq",
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:09.690Z",
+          "is_pending": false,
+          "hoisted_role": "246532723000153879",
+          "deaf": false,
+          "avatar": null
+        },
+        "id": "248540240857876003",
+        "flags": 0,
+        "embeds": [],
+        "edited_timestamp": null,
+        "content": "FUO Dzqj",
+        "components": [],
+        "channel_id": "967086344431513117",
+        "author": {
+          "username": "oi",
+          "public_flags": 0,
+          "id": "849800000760023049",
+          "discriminator": "1994",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "attachments": [],
+        "guild_id": "912957055963321574"
+      }
+    }
+  },
+  "id": "8157"
+}

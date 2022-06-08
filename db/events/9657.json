@@ -1,1 +1,55 @@
-{"0":{"shardId":7,"payload":{"t":"MESSAGE_CREATE","s":1103,"op":0,"d":{"type":0,"tts":false,"timestamp":"2021-10-10T08:16:22.941Z","referenced_message":null,"pinned":false,"nonce":"997584664627899327","mentions":[],"mention_roles":[],"mention_everyone":false,"member":{"roles":["367619697962578722","852048604519306962","832156527464698097","799282513399139315"],"premium_since":null,"pending":false,"nick":null,"mute":false,"joined_at":"2021-10-10T08:16:22.942Z","is_pending":false,"hoisted_role":"673879572545529514","deaf":false,"avatar":null},"id":"647756921407403745","flags":0,"embeds":[],"edited_timestamp":null,"content":"vpb","components":[],"channel_id":"251757764442548319","author":{"username":"NcmavZ","public_flags":0,"id":"339472024569471394","discriminator":"6979","avatar":"eae5905ad2d18d7c8deca20478b088b5"},"attachments":[],"guild_id":"685495733571705419"}}},"id":"9657"}
+{
+  "0": {
+    "shardId": 7,
+    "payload": {
+      "t": "MESSAGE_CREATE",
+      "s": 1103,
+      "op": 0,
+      "d": {
+        "type": 0,
+        "tts": false,
+        "timestamp": "2021-10-10T08:16:22.941Z",
+        "referenced_message": null,
+        "pinned": false,
+        "nonce": "997584664627899327",
+        "mentions": [],
+        "mention_roles": [],
+        "mention_everyone": false,
+        "member": {
+          "roles": [
+            "367619697962578722",
+            "852048604519306962",
+            "832156527464698097",
+            "799282513399139315"
+          ],
+          "premium_since": null,
+          "pending": false,
+          "nick": null,
+          "mute": false,
+          "joined_at": "2021-10-10T08:16:22.942Z",
+          "is_pending": false,
+          "hoisted_role": "673879572545529514",
+          "deaf": false,
+          "avatar": null
+        },
+        "id": "647756921407403745",
+        "flags": 0,
+        "embeds": [],
+        "edited_timestamp": null,
+        "content": "vpb",
+        "components": [],
+        "channel_id": "251757764442548319",
+        "author": {
+          "username": "NcmavZ",
+          "public_flags": 0,
+          "id": "339472024569471394",
+          "discriminator": "6979",
+          "avatar": "eae5905ad2d18d7c8deca20478b088b5"
+        },
+        "attachments": [],
+        "guild_id": "685495733571705419"
+      }
+    }
+  },
+  "id": "9657"
+}
