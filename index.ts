@@ -52,9 +52,9 @@ export async function memoryBenchmarks(
         try {
           await bot.gateway.manager.createShardOptions.events.message(
             // @ts-ignore should work
-            JSON.stringify(event.payload),
+            { id: event.shardId },
             // @ts-ignore should work
-            { id: event.shardId }
+            JSON.stringify(event.payload),
           );
         } catch (error) {
           console.log("erroring in benchmark", error);
