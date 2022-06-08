@@ -50,12 +50,11 @@ export async function memoryBenchmarks(
         counter++;
 
         try {
-          await bot.gateway.handleOnMessage(
-            bot.gateway,
+          await bot.gateway.manager.createShardOptions.events.message(
             // @ts-ignore should work
             JSON.stringify(event.payload),
             // @ts-ignore should work
-            event.shardId
+            { id: event.shardId }
           );
         } catch (error) {
           console.log("erroring in benchmark", error);
