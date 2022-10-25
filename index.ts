@@ -40,12 +40,17 @@ export async function memoryBenchmarks(
   }
   //@ts-ignore
   if (gcEnable) garbageCollect = gc;
+
+  const stages = ["start", "loaded", "end", "cached"] as const;
+  const typeOfMemUsages = ["rss", "heapUsed", "heapTotal"] as const;
+
   async function runTest(bot: any) {
     // Determine memory stats now before touching anything
     const results: {
       start: Deno.MemoryUsage;
       loaded?: Deno.MemoryUsage;
       end?: Deno.MemoryUsage;
+      cached?: Deno.MemoryUsage;
     } = {
       start: Deno.memoryUsage(),
     };
@@ -66,8 +71,8 @@ export async function memoryBenchmarks(
     for (let i = 0; i < events.length; i++) {
       const e = events[i];
 
-      // @ts-ignore should be fine
       for (
+        // @ts-ignore should be fine
         const event of Object.values(e) as (string | {
           shardId: number;
           // the d in DiscordGatewayPayload is {}
@@ -114,6 +119,12 @@ export async function memoryBenchmarks(
 
     // Set results for data once all events are processed
     results.end = Deno.memoryUsage();
+    //@ts-ignore
+    results.cached = {};
+    for (const typeOfMemUsage of typeOfMemUsages) {
+      results.cached![typeOfMemUsage] = results.end![typeOfMemUsage] -
+        results.loaded![typeOfMemUsage];
+    }
 
     if (options.log) {
       console.log(
@@ -137,156 +148,76 @@ export async function memoryBenchmarks(
 
   const allResults = {
     start: {
-      rss: 0,
-      heapUsed: 0,
-      heapTotal: 0,
-    } as Deno.MemoryUsage,
-    loaded: {
-      rss: 0,
-      heapUsed: 0,
-      heapTotal: 0,
-    } as Deno.MemoryUsage,
-    end: {
-      rss: 0,
-      heapUsed: 0,
-      heapTotal: 0,
-    } as Deno.MemoryUsage,
-    cached: {
-      rss: 0,
-      heapUsed: 0,
-      heapTotal: 0,
-    } as Deno.MemoryUsage,
-    max: {
-      start: {
-        rss: 0,
-        heapUsed: 0,
-        heapTotal: 0,
-      } as Deno.MemoryUsage,
-      loaded: {
-        rss: 0,
-        heapUsed: 0,
-        heapTotal: 0,
-      } as Deno.MemoryUsage,
-      end: {
-        rss: 0,
-        heapUsed: 0,
-        heapTotal: 0,
-      } as Deno.MemoryUsage,
-      cached: {
-        rss: 0,
-        heapUsed: 0,
-        heapTotal: 0,
-      } as Deno.MemoryUsage,
+      rss: [] as number[],
+      heapUsed: [] as number[],
+      heapTotal: [] as number[],
     },
-    min: {
-      start: {
-        rss: 0,
-        heapUsed: 0,
-        heapTotal: 0,
-      } as Deno.MemoryUsage,
-      loaded: {
-        rss: 0,
-        heapUsed: 0,
-        heapTotal: 0,
-      } as Deno.MemoryUsage,
-      end: {
-        rss: 0,
-        heapUsed: 0,
-        heapTotal: 0,
-      } as Deno.MemoryUsage,
-      cached: {
-        rss: 0,
-        heapUsed: 0,
-        heapTotal: 0,
-      } as Deno.MemoryUsage,
+    loaded: {
+      rss: [] as number[],
+      heapUsed: [] as number[],
+      heapTotal: [] as number[],
+    },
+    end: {
+      rss: [] as number[],
+      heapUsed: [] as number[],
+      heapTotal: [] as number[],
+    },
+    cached: {
+      rss: [] as number[],
+      heapUsed: [] as number[],
+      heapTotal: [] as number[],
     },
   };
 
-  const BYTES = 1000000 * options.times;
-
-  const stages = ["start", "loaded", "end"] as const;
-  const typeOfMemUsages = ["rss", "heapUsed", "heapTotal"] as const;
+  const BYTES = 1000000;
 
   for (let index = 0; index < options.times; index++) {
     if (options.log) console.log("running the", index + 1, "time");
     const currentResult = await runTest(botCreator());
     for (const typeOfMemUsage of typeOfMemUsages) {
       for (const stage of stages) {
-        allResults[stage][typeOfMemUsage] +=
-          currentResult[stage]![typeOfMemUsage];
-        if (
-          allResults.max[stage][typeOfMemUsage] <
-            currentResult[stage]![typeOfMemUsage] || index === 0
-        ) {
-          allResults.max[stage][typeOfMemUsage] =
-            currentResult[stage]![typeOfMemUsage];
-        }
-        if (
-          allResults.min[stage][typeOfMemUsage] >
-            currentResult[stage]![typeOfMemUsage] || index === 0
-        ) {
-          allResults.min[stage][typeOfMemUsage] =
-            currentResult[stage]![typeOfMemUsage];
-        }
-      }
-      const cached = (currentResult.end![typeOfMemUsage] -
-        currentResult.loaded![typeOfMemUsage]);
-      allResults.cached[typeOfMemUsage] += cached;
-      if (allResults.max.cached[typeOfMemUsage] < cached || index === 0) {
-        allResults.max.cached[typeOfMemUsage] = cached;
-      }
-      if (allResults.min.cached[typeOfMemUsage] > cached || index === 0) {
-        allResults.min.cached[typeOfMemUsage] = cached;
+        allResults[stage][typeOfMemUsage].push(
+          currentResult[stage]![typeOfMemUsage],
+        );
       }
     }
   }
 
-  const humanReadable = {
-    Starting: {
-      RSS: `${allResults.start.rss / BYTES} MB (${
-        allResults.min.start.rss / (BYTES / options.times)
-      } MB … ${allResults.max.start.rss / (BYTES / options.times)} MB)`,
-      "Heap Used": `${allResults.start.heapUsed / BYTES} MB (${
-        allResults.min.start.rss / (BYTES / options.times)
-      } MB … ${allResults.max.start.rss / (BYTES / options.times)} MB)`,
-      "Heap Total": `${allResults.start.heapTotal / BYTES} MB (${
-        allResults.min.start.rss / (BYTES / options.times)
-      } MB … ${allResults.max.start.rss / (BYTES / options.times)} MB)`,
-    },
-    Loaded: {
-      RSS: `${allResults.loaded!.rss / BYTES} MB (${
-        allResults.min.loaded.rss / (BYTES / options.times)
-      } MB … ${allResults.max.loaded.rss / (BYTES / options.times)} MB)`,
-      "Heap Used": `${allResults.loaded!.heapUsed / BYTES} MB (${
-        allResults.min.loaded.rss / (BYTES / options.times)
-      } MB … ${allResults.max.loaded.rss / (BYTES / options.times)} MB)`,
-      "Heap Total": `${allResults.loaded!.heapTotal / BYTES} MB (${
-        allResults.min.loaded.rss / (BYTES / options.times)
-      } MB … ${allResults.max.loaded.rss / (BYTES / options.times)} MB)`,
-    },
-    End: {
-      RSS: `${allResults.end.rss / BYTES} MB (${
-        allResults.min.end.rss / (BYTES / options.times)
-      } MB … ${allResults.max.end.rss / (BYTES / options.times)} MB)`,
-      "Heap Used": `${allResults.end.heapUsed / BYTES} MB (${
-        allResults.min.end.rss / (BYTES / options.times)
-      } MB … ${allResults.max.end.rss / (BYTES / options.times)} MB)`,
-      "Heap Total": `${allResults.end.heapTotal / BYTES} MB (${
-        allResults.min.end.rss / (BYTES / options.times)
-      } MB … ${allResults.max.end.rss / (BYTES / options.times)} MB)`,
-    },
-    Cached: {
-      RSS: `${allResults.cached.rss / BYTES} MB (${
-        allResults.min.cached.rss / (BYTES / options.times)
-      } MB … ${allResults.max.cached.rss / (BYTES / options.times)} MB)`,
-      "Heap Used": `${(allResults.cached.heapUsed) / BYTES} MB (${
-        allResults.min.cached.heapUsed / (BYTES / options.times)
-      } MB … ${allResults.max.cached.heapUsed / (BYTES / options.times)} MB)`,
-      "Heap Total": `${(allResults.cached.heapTotal) / BYTES} MB (${
-        allResults.min.cached.heapTotal / (BYTES / options.times)
-      } MB … ${allResults.max.cached.heapTotal / (BYTES / options.times)} MB)`,
-    },
-  };
+  type ArrayElement<ArrayType extends readonly unknown[]> = ArrayType extends
+    readonly (infer ElementType)[] ? ElementType : never;
+
+  const tableRows = ["Starting", "Loaded", "End", "Cached"] as const;
+  const tableFields = ["RSS", "Heap Used", "Heap Total"] as const;
+
+  const humanReadable: {
+    [K in ArrayElement<typeof tableRows>]?: {
+      [K in ArrayElement<typeof tableFields>]?: string;
+    };
+  } = {};
+
+  for (const [index, tableRow] of tableRows.entries()) {
+    for (const [index2, tableField] of tableFields.entries()) {
+      if (index2 === 0) humanReadable[tableRow] = {};
+      humanReadable[tableRow]![tableField] = `${
+        Math.round(
+          allResults[stages[index]][typeOfMemUsages[index2]].reduce(
+            (acc, c) => acc + c,
+            0,
+          ) / allResults.start.rss.length / BYTES * 100,
+        ) / 100
+      } MB (${
+        Math.round(
+          Math.min(...allResults[stages[index]][typeOfMemUsages[index2]]) /
+            BYTES * 100,
+        ) / 100
+      } MB … ${
+        Math.round(
+          Math.max(...allResults[stages[index]][typeOfMemUsages[index2]]) /
+            BYTES * 100,
+        ) / 100
+      } MB)`;
+    }
+  }
 
   if (options.table) console.table(humanReadable);
 
@@ -295,6 +226,8 @@ export async function memoryBenchmarks(
 
 /* Example Usage
 deno run --v8-flags="--expose-gc" -A .\index.ts
+*/
+/*
 import { createBot } from "https://deno.land/x/discordeno@17.1.0/mod.ts";
 import { enableCachePlugin } from "https://deno.land/x/discordeno@17.1.0/plugins/mod.ts";
 memoryBenchmarks(() => enableCachePlugin(createBot({
