@@ -2,7 +2,7 @@ import { Sabr, SabrTable } from "https://deno.land/x/sabr@1.1.5/mod.ts";
 
 console.log(`[INFO] Script started.`);
 const sabr = new Sabr();
-sabr.directoryPath = `${Deno.cwd()}/benchmarks/db/`;
+sabr.directoryPath = `db/`;
 
 // Creates a db object that can be imported in other files.
 export const db = {
@@ -17,21 +17,35 @@ await sabr.init();
 
 console.log(`[INFO] Sabr DB has been initialized.`);
 
-// Determine memory stats now before touching anything
-const results: {
-  start: Deno.MemoryUsage;
-  loaded?: Deno.MemoryUsage;
-  processed?: Deno.MemoryUsage;
-  end?: Deno.MemoryUsage;
-} = {
-  start: Deno.memoryUsage(),
-};
 
 export async function memoryBenchmarks(
-  bot: any,
-  options: { log: boolean; table: boolean } = { log: false, table: true },
+  botCreator: () => any,
+  options: { times: number, log: boolean; table: boolean } = { times: 3, log: false, table: true },
 ) {
-  async function runTest() {
+  let gcEnable = false
+  let garbageCollect = () => { }
+  try {
+    //@ts-ignore
+    gc()
+    gcEnable = true;
+  } catch (error) {
+    if (error.message === "gc is not defined") {
+      console.error(`[WARN] add the flag '--v8-flags="--expose-gc"' for higher accuracy, or change options.times to 1`);
+    }
+  }
+  //@ts-ignore
+  if (gcEnable) garbageCollect = gc
+  async function runTest(bot: any) {
+    // Determine memory stats now before touching anything
+    const results: {
+      start: Deno.MemoryUsage;
+      loaded?: Deno.MemoryUsage;
+      end?: Deno.MemoryUsage;
+    } = {
+      start: Deno.memoryUsage(),
+    };
+    garbageCollect()
+    results.start = Deno.memoryUsage();
     if (options.log) console.log(`[INFO] Loading json files.`);
 
     const events = await db.events.getAll(true);
@@ -48,17 +62,33 @@ export async function memoryBenchmarks(
       const e = events[i];
 
       // @ts-ignore should be fine
-      for (const event of Object.values(e)) {
+      for (const event of Object.values(e) as (string | {
+        shardId: number,
+        // the d in DiscordGatewayPayload is {}
+        payload: any // DiscordGatewayPayload
+      })[]
+      ) {
+        // In db there is some weird id: "1561" event, this filters it
+        if (typeof event === 'string') continue
         counter++;
-
         try {
-          await bot.gateway.manager.createShardOptions.events.message(
-            // @ts-ignore should work
-            { id: event.shardId },
-            // @ts-ignore should work
-            JSON.stringify(event.payload),
-          );
+          // Turn all hash into a known working hash, make guild iconHashToBigInt working
+          if (event.payload.d !== null && event.payload.d) {
+            if ('icon' in event.payload.d) event.payload.d.icon = "eae5905ad2d18d7c8deca20478b088b5"
+            if ('discovery_splash' in event.payload.d) event.payload.d.discovery_splash = "eae5905ad2d18d7c8deca20478b088b5"
+            if ('banner' in event.payload.d) event.payload.d.banner = "eae5905ad2d18d7c8deca20478b088b5"
+            if ('splash' in event.payload.d) event.payload.d.splash = "eae5905ad2d18d7c8deca20478b088b5"
+          }
+
+          if (event.payload.t) {
+            bot.handlers[event.payload.t as any]?.(
+              bot,
+              event.payload,
+              event.shardId
+            )
+          }
         } catch (error) {
+          console.log(event)
           console.log("erroring in benchmark", error);
         }
       }
@@ -68,66 +98,150 @@ export async function memoryBenchmarks(
     }
 
     // Set results for data once all events are processed
-    results.processed = Deno.memoryUsage();
+    results.end = Deno.memoryUsage();
+
+    if (options.log) {
+      console.log(
+        "channels",
+        bot.channels.size.toLocaleString(),
+        "guilds",
+        bot.guilds.size.toLocaleString(),
+        "members",
+        bot.members.size.toLocaleString(),
+        "users",
+        bot.users.size.toLocaleString(),
+        "messages",
+        bot.messages.size.toLocaleString(),
+        "presences",
+        bot.presences.size.toLocaleString(),
+      );
+    }
+
+    return results;
   }
 
-  await runTest();
+  const allResults = {
+    start: {
+      rss: 0,
+      heapUsed: 0,
+      heapTotal: 0
+    } as Deno.MemoryUsage,
+    loaded: {
+      rss: 0,
+      heapUsed: 0,
+      heapTotal: 0
+    } as Deno.MemoryUsage,
+    end: {
+      rss: 0,
+      heapUsed: 0,
+      heapTotal: 0
+    } as Deno.MemoryUsage,
+    cached: {
+      rss: 0,
+      heapUsed: 0,
+      heapTotal: 0
+    } as Deno.MemoryUsage,
+    max: {
+      start: {
+        rss: 0,
+        heapUsed: 0,
+        heapTotal: 0
+      } as Deno.MemoryUsage,
+      loaded: {
+        rss: 0,
+        heapUsed: 0,
+        heapTotal: 0
+      } as Deno.MemoryUsage,
+      end: {
+        rss: 0,
+        heapUsed: 0,
+        heapTotal: 0
+      } as Deno.MemoryUsage,
+      cached: {
+        rss: 0,
+        heapUsed: 0,
+        heapTotal: 0
+      } as Deno.MemoryUsage,
+    },
+    min: {
+      start: {
+        rss: 0,
+        heapUsed: 0,
+        heapTotal: 0
+      } as Deno.MemoryUsage,
+      loaded: {
+        rss: 0,
+        heapUsed: 0,
+        heapTotal: 0
+      } as Deno.MemoryUsage,
+      end: {
+        rss: 0,
+        heapUsed: 0,
+        heapTotal: 0
+      } as Deno.MemoryUsage,
+      cached: {
+        rss: 0,
+        heapUsed: 0,
+        heapTotal: 0
+      } as Deno.MemoryUsage,
+    }
+  }
 
-  const BYTES = 1000000;
+  const BYTES = 1000000 * options.times;
 
-  // Set final results
-  results.end = Deno.memoryUsage();
+  const stages = ["start", "loaded", "end"] as const;
+  const typeOfMemUsages = ["rss", "heapUsed", "heapTotal"] as const;
+
+  for (let index = 0; index < options.times; index++) {
+    if (options.log) console.log("running the", index + 1, "time")
+    const currentResult = await runTest(botCreator());
+    for (const typeOfMemUsage of typeOfMemUsages) {
+      for (const stage of stages) {
+        allResults[stage][typeOfMemUsage] += currentResult[stage]![typeOfMemUsage]
+        if (allResults.max[stage][typeOfMemUsage] < currentResult[stage]![typeOfMemUsage] || index === 0) allResults.max[stage][typeOfMemUsage] = currentResult[stage]![typeOfMemUsage]
+        if (allResults.min[stage][typeOfMemUsage] > currentResult[stage]![typeOfMemUsage] || index === 0) allResults.min[stage][typeOfMemUsage] = currentResult[stage]![typeOfMemUsage]
+      }
+      const cached = (currentResult.end![typeOfMemUsage] - currentResult.loaded![typeOfMemUsage])
+      allResults.cached[typeOfMemUsage] += cached
+      if (allResults.max.cached[typeOfMemUsage] < cached || index === 0) allResults.max.cached[typeOfMemUsage] = cached
+      if (allResults.min.cached[typeOfMemUsage] > cached || index === 0) allResults.min.cached[typeOfMemUsage] = cached
+    }
+  }
 
   const humanReadable = {
     Starting: {
-      RSS: `${results.start.rss / BYTES} MB`,
-      "Heap Used": `${results.start.heapUsed / BYTES} MB`,
-      "Heap Total": `${results.start.heapTotal / BYTES} MB`,
+      RSS: `${allResults.start.rss / BYTES} MB (${allResults.min.start.rss / (BYTES / options.times)} MB … ${allResults.max.start.rss / (BYTES / options.times)} MB)`,
+      "Heap Used": `${allResults.start.heapUsed / BYTES} MB (${allResults.min.start.rss / (BYTES / options.times)} MB … ${allResults.max.start.rss / (BYTES / options.times)} MB)`,
+      "Heap Total": `${allResults.start.heapTotal / BYTES} MB (${allResults.min.start.rss / (BYTES / options.times)} MB … ${allResults.max.start.rss / (BYTES / options.times)} MB)`,
     },
     Loaded: {
-      RSS: `${results.loaded!.rss / BYTES} MB`,
-      "Heap Used": `${results.loaded!.heapUsed / BYTES} MB`,
-      "Heap Total": `${results.loaded!.heapTotal / BYTES} MB`,
-    },
-    Processed: {
-      RSS: `${results.processed!.rss / BYTES} MB`,
-      "Heap Used": `${results.processed!.heapUsed / BYTES} MB`,
-      "Heap Total": `${results.processed!.heapTotal / BYTES} MB`,
+      RSS: `${allResults.loaded!.rss / BYTES} MB (${allResults.min.loaded.rss / (BYTES / options.times)} MB … ${allResults.max.loaded.rss / (BYTES / options.times)} MB)`,
+      "Heap Used": `${allResults.loaded!.heapUsed / BYTES} MB (${allResults.min.loaded.rss / (BYTES / options.times)} MB … ${allResults.max.loaded.rss / (BYTES / options.times)} MB)`,
+      "Heap Total": `${allResults.loaded!.heapTotal / BYTES} MB (${allResults.min.loaded.rss / (BYTES / options.times)} MB … ${allResults.max.loaded.rss / (BYTES / options.times)} MB)`,
     },
     End: {
-      RSS: `${results.end.rss / BYTES} MB`,
-      "Heap Used": `${results.end.heapUsed / BYTES} MB`,
-      "Heap Total": `${results.end.heapTotal / BYTES} MB`,
+      RSS: `${allResults.end.rss / BYTES} MB (${allResults.min.end.rss / (BYTES / options.times)} MB … ${allResults.max.end.rss / (BYTES / options.times)} MB)`,
+      "Heap Used": `${allResults.end.heapUsed / BYTES} MB (${allResults.min.end.rss / (BYTES / options.times)} MB … ${allResults.max.end.rss / (BYTES / options.times)} MB)`,
+      "Heap Total": `${allResults.end.heapTotal / BYTES} MB (${allResults.min.end.rss / (BYTES / options.times)} MB … ${allResults.max.end.rss / (BYTES / options.times)} MB)`,
     },
     Cached: {
-      RSS: `${(results.end.rss - results.loaded!.rss) / BYTES} MB`,
-      "Heap Used": `${
-        (results.end.heapUsed - results.loaded!.heapUsed) / BYTES
-      } MB`,
-      "Heap Total": `${
-        (results.end.heapTotal - results.loaded!.heapTotal) / BYTES
-      } MB`,
+      RSS: `${allResults.cached.rss / BYTES} MB (${allResults.min.cached.rss / (BYTES / options.times)} MB … ${allResults.max.cached.rss / (BYTES / options.times)} MB)`,
+      "Heap Used": `${(allResults.cached.heapUsed) / BYTES} MB (${allResults.min.cached.heapUsed / (BYTES / options.times)} MB … ${allResults.max.cached.heapUsed / (BYTES / options.times)} MB)`,
+      "Heap Total": `${(allResults.cached.heapTotal) / BYTES} MB (${allResults.min.cached.heapTotal / (BYTES / options.times)} MB … ${allResults.max.cached.heapTotal / (BYTES / options.times)} MB)`,
     },
   };
 
-  if (options.log) {
-    console.log(
-      "channels",
-      bot.channels.size.toLocaleString(),
-      "guilds",
-      bot.guilds.size.toLocaleString(),
-      "members",
-      bot.members.size.toLocaleString(),
-      "users",
-      bot.users.size.toLocaleString(),
-      "messages",
-      bot.messages.size.toLocaleString(),
-      "presences",
-      bot.presences.size.toLocaleString(),
-    );
-  }
-
   if (options.table) console.table(humanReadable);
 
-  return results;
+  return allResults;
 }
+
+/* Example Usage
+deno run --v8-flags="--expose-gc" -A .\index.ts
+import { createBot } from "https://deno.land/x/discordeno@17.1.0/mod.ts";
+import { enableCachePlugin } from "https://deno.land/x/discordeno@17.1.0/plugins/mod.ts";
+memoryBenchmarks(() => enableCachePlugin(createBot({
+  token: " ",
+  botId: 0n,
+})))
+*/
