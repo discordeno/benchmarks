@@ -2,7 +2,13 @@ import { Sabr, SabrTable } from "https://deno.land/x/sabr@1.1.5/mod.ts";
 
 console.log(`[INFO] Script started.`);
 const sabr = new Sabr();
-sabr.directoryPath = `db/`;
+
+try {
+  await Deno.readDir("db");
+  sabr.directoryPath = `db/`;
+} catch {
+  sabr.directoryPath = `${Deno.cwd()}/benchmarks/db/`;
+}
 
 // Creates a db object that can be imported in other files.
 export const db = {
