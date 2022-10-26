@@ -227,7 +227,13 @@ export async function memoryBenchmarks(
 
   if (options.table) console.table(humanReadable);
 
-  return allResults;
+  const processedResults = humanReadable as {
+    [K in ArrayElement<typeof tableRows>]: {
+      [K in ArrayElement<typeof tableFields>]: string;
+    };
+  };
+
+  return processedResults;
 }
 
 /* Example Usage
