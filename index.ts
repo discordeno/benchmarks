@@ -2,7 +2,13 @@ import { Sabr, SabrTable } from "https://deno.land/x/sabr@1.1.5/mod.ts";
 
 console.log(`[INFO] Script started.`);
 const sabr = new Sabr();
-sabr.directoryPath = `${Deno.cwd()}/benchmarks/db/`;
+
+try {
+  await Deno.readDir("db");
+  sabr.directoryPath = `db/`;
+} catch {
+  sabr.directoryPath = `${Deno.cwd()}/benchmarks/db/`;
+}
 
 // Creates a db object that can be imported in other files.
 export const db = {
@@ -17,21 +23,45 @@ await sabr.init();
 
 console.log(`[INFO] Sabr DB has been initialized.`);
 
-// Determine memory stats now before touching anything
-const results: {
-  start: Deno.MemoryUsage;
-  loaded?: Deno.MemoryUsage;
-  processed?: Deno.MemoryUsage;
-  end?: Deno.MemoryUsage;
-} = {
-  start: Deno.memoryUsage(),
-};
-
 export async function memoryBenchmarks(
-  bot: any,
-  options: { log: boolean; table: boolean } = { log: false, table: true },
+  botCreator: () => any,
+  options: { times: number; log: boolean; table: boolean } = {
+    times: 3,
+    log: false,
+    table: true,
+  },
 ) {
-  async function runTest() {
+  let gcEnable = false;
+  let garbageCollect = () => {};
+  try {
+    //@ts-ignore
+    gc();
+    gcEnable = true;
+  } catch (error) {
+    if (error.message === "gc is not defined") {
+      console.error(
+        `[WARN] add the flag '--v8-flags="--expose-gc"' for higher accuracy, or change options.times to 1`,
+      );
+    }
+  }
+  //@ts-ignore
+  if (gcEnable) garbageCollect = gc;
+
+  const stages = ["start", "loaded", "end", "cached"] as const;
+  const typeOfMemUsages = ["rss", "heapUsed", "heapTotal"] as const;
+
+  async function runTest(bot: any) {
+    // Determine memory stats now before touching anything
+    const results: {
+      start: Deno.MemoryUsage;
+      loaded?: Deno.MemoryUsage;
+      end?: Deno.MemoryUsage;
+      cached?: Deno.MemoryUsage;
+    } = {
+      start: Deno.memoryUsage(),
+    };
+    garbageCollect();
+    results.start = Deno.memoryUsage();
     if (options.log) console.log(`[INFO] Loading json files.`);
 
     const events = await db.events.getAll(true);
@@ -47,18 +77,44 @@ export async function memoryBenchmarks(
     for (let i = 0; i < events.length; i++) {
       const e = events[i];
 
-      // @ts-ignore should be fine
-      for (const event of Object.values(e)) {
+      for (
+        // @ts-ignore should be fine
+        const event of Object.values(e) as (string | {
+          shardId: number;
+          // the d in DiscordGatewayPayload is {}
+          payload: any; // DiscordGatewayPayload
+        })[]
+      ) {
+        // In db there is some weird id: "1561" event, this filters it
+        if (typeof event === "string") continue;
         counter++;
-
         try {
-          await bot.gateway.manager.createShardOptions.events.message(
-            // @ts-ignore should work
-            { id: event.shardId },
-            // @ts-ignore should work
-            JSON.stringify(event.payload),
-          );
+          // Turn all hash into a known working hash, make guild iconHashToBigInt working
+          if (event.payload.d !== null && event.payload.d) {
+            if ("icon" in event.payload.d) {
+              event.payload.d.icon = "eae5905ad2d18d7c8deca20478b088b5";
+            }
+            if ("discovery_splash" in event.payload.d) {
+              event.payload.d.discovery_splash =
+                "eae5905ad2d18d7c8deca20478b088b5";
+            }
+            if ("banner" in event.payload.d) {
+              event.payload.d.banner = "eae5905ad2d18d7c8deca20478b088b5";
+            }
+            if ("splash" in event.payload.d) {
+              event.payload.d.splash = "eae5905ad2d18d7c8deca20478b088b5";
+            }
+          }
+
+          if (event.payload.t) {
+            bot.handlers[event.payload.t as any]?.(
+              bot,
+              event.payload,
+              event.shardId,
+            );
+          }
         } catch (error) {
+          console.log(event);
           console.log("erroring in benchmark", error);
         }
       }
@@ -68,66 +124,149 @@ export async function memoryBenchmarks(
     }
 
     // Set results for data once all events are processed
-    results.processed = Deno.memoryUsage();
+    results.end = Deno.memoryUsage();
+    //@ts-ignore
+    results.cached = {};
+    for (const typeOfMemUsage of typeOfMemUsages) {
+      results.cached![typeOfMemUsage] = results.end![typeOfMemUsage] -
+        results.loaded![typeOfMemUsage];
+    }
+
+    if (options.log) {
+      console.log(
+        "channels",
+        bot.channels.size.toLocaleString(),
+        "guilds",
+        bot.guilds.size.toLocaleString(),
+        "members",
+        bot.members.size.toLocaleString(),
+        "users",
+        bot.users.size.toLocaleString(),
+        "messages",
+        bot.messages.size.toLocaleString(),
+        "presences",
+        bot.presences.size.toLocaleString(),
+      );
+    }
+
+    return results;
   }
 
-  await runTest();
-
-  const BYTES = 1000000;
-
-  // Set final results
-  results.end = Deno.memoryUsage();
-
-  const humanReadable = {
-    Starting: {
-      RSS: `${results.start.rss / BYTES} MB`,
-      "Heap Used": `${results.start.heapUsed / BYTES} MB`,
-      "Heap Total": `${results.start.heapTotal / BYTES} MB`,
+  const allResults = {
+    start: {
+      rss: [] as number[],
+      heapUsed: [] as number[],
+      heapTotal: [] as number[],
     },
-    Loaded: {
-      RSS: `${results.loaded!.rss / BYTES} MB`,
-      "Heap Used": `${results.loaded!.heapUsed / BYTES} MB`,
-      "Heap Total": `${results.loaded!.heapTotal / BYTES} MB`,
+    loaded: {
+      rss: [] as number[],
+      heapUsed: [] as number[],
+      heapTotal: [] as number[],
     },
-    Processed: {
-      RSS: `${results.processed!.rss / BYTES} MB`,
-      "Heap Used": `${results.processed!.heapUsed / BYTES} MB`,
-      "Heap Total": `${results.processed!.heapTotal / BYTES} MB`,
+    end: {
+      rss: [] as number[],
+      heapUsed: [] as number[],
+      heapTotal: [] as number[],
     },
-    End: {
-      RSS: `${results.end.rss / BYTES} MB`,
-      "Heap Used": `${results.end.heapUsed / BYTES} MB`,
-      "Heap Total": `${results.end.heapTotal / BYTES} MB`,
-    },
-    Cached: {
-      RSS: `${(results.end.rss - results.loaded!.rss) / BYTES} MB`,
-      "Heap Used": `${
-        (results.end.heapUsed - results.loaded!.heapUsed) / BYTES
-      } MB`,
-      "Heap Total": `${
-        (results.end.heapTotal - results.loaded!.heapTotal) / BYTES
-      } MB`,
+    cached: {
+      rss: [] as number[],
+      heapUsed: [] as number[],
+      heapTotal: [] as number[],
     },
   };
 
-  if (options.log) {
-    console.log(
-      "channels",
-      bot.channels.size.toLocaleString(),
-      "guilds",
-      bot.guilds.size.toLocaleString(),
-      "members",
-      bot.members.size.toLocaleString(),
-      "users",
-      bot.users.size.toLocaleString(),
-      "messages",
-      bot.messages.size.toLocaleString(),
-      "presences",
-      bot.presences.size.toLocaleString(),
-    );
+  const BYTES = 1000000;
+
+  for (let index = 0; index < options.times; index++) {
+    if (options.log) console.log("running the", index + 1, "time");
+    const currentResult = await runTest(botCreator());
+    for (const typeOfMemUsage of typeOfMemUsages) {
+      for (const stage of stages) {
+        allResults[stage][typeOfMemUsage].push(
+          currentResult[stage]![typeOfMemUsage],
+        );
+      }
+    }
+  }
+
+  type ArrayElement<ArrayType extends readonly unknown[]> = ArrayType extends
+    readonly (infer ElementType)[] ? ElementType : never;
+
+  const tableRows = ["Starting", "Loaded", "End", "Cached"] as const;
+  const tableFields = ["RSS", "Heap Used", "Heap Total"] as const;
+
+  const preprocessedResults: {
+    [K in ArrayElement<typeof tableRows>]?: {
+      [K in ArrayElement<typeof tableFields>]?: {
+        value: number;
+        min: number;
+        max: number;
+      };
+    };
+  } = {};
+
+  for (const [index, tableRow] of tableRows.entries()) {
+    for (const [index2, tableField] of tableFields.entries()) {
+      if (index2 === 0) preprocessedResults[tableRow] = {};
+      preprocessedResults[tableRow]![tableField] = {
+        value: Math.round(
+          allResults[stages[index]][typeOfMemUsages[index2]].reduce(
+            (acc, c) => acc + c,
+            0,
+          ) / allResults.start.rss.length / BYTES * 100,
+        ) / 100,
+        min: Math.round(
+          Math.min(...allResults[stages[index]][typeOfMemUsages[index2]]) /
+            BYTES * 100,
+        ) / 100,
+        max: Math.round(
+          Math.max(...allResults[stages[index]][typeOfMemUsages[index2]]) /
+            BYTES * 100,
+        ) / 100,
+      };
+    }
+  }
+
+  const processedResults = preprocessedResults as {
+    [K in ArrayElement<typeof tableRows>]: {
+      [K in ArrayElement<typeof tableFields>]: {
+        value: number;
+        min: number;
+        max: number;
+      };
+    };
+  };
+
+  const humanReadable: {
+    [K in ArrayElement<typeof tableRows>]?: {
+      [K in ArrayElement<typeof tableFields>]?: string;
+    };
+  } = {};
+
+  for (const tableRow of tableRows) {
+    for (const [index, tableField] of tableFields.entries()) {
+      if (index === 0) humanReadable[tableRow] = {};
+      humanReadable[tableRow]![tableField] = `${
+        processedResults[tableRow][tableField].value
+      } MB (${processedResults[tableRow][tableField].min} MB … ${
+        processedResults[tableRow][tableField].max
+      } MB)`;
+    }
   }
 
   if (options.table) console.table(humanReadable);
 
-  return results;
+  return processedResults;
 }
+
+/* Example Usage
+deno run --v8-flags="--expose-gc" -A .\index.ts
+*/
+/*
+import { createBot } from "https://deno.land/x/discordeno@17.1.0/mod.ts";
+import { enableCachePlugin } from "https://deno.land/x/discordeno@17.1.0/plugins/mod.ts";
+memoryBenchmarks(() => enableCachePlugin(createBot({
+  token: " ",
+  botId: 0n,
+})))
+*/
