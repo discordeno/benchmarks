@@ -195,43 +195,66 @@ export async function memoryBenchmarks(
   const tableRows = ["Starting", "Loaded", "End", "Cached"] as const;
   const tableFields = ["RSS", "Heap Used", "Heap Total"] as const;
 
+  const preprocessedResults: {
+    [K in ArrayElement<typeof tableRows>]?: {
+      [K in ArrayElement<typeof tableFields>]?: {
+        value: number;
+        min: number;
+        max: number;
+      };
+    };
+  } = {};
+
+  for (const [index, tableRow] of tableRows.entries()) {
+    for (const [index2, tableField] of tableFields.entries()) {
+      if (index2 === 0) preprocessedResults[tableRow] = {};
+      preprocessedResults[tableRow]![tableField] = {
+        value: Math.round(
+          allResults[stages[index]][typeOfMemUsages[index2]].reduce(
+            (acc, c) => acc + c,
+            0,
+          ) / allResults.start.rss.length / BYTES * 100,
+        ) / 100,
+        min: Math.round(
+          Math.min(...allResults[stages[index]][typeOfMemUsages[index2]]) /
+            BYTES * 100,
+        ) / 100,
+        max: Math.round(
+          Math.max(...allResults[stages[index]][typeOfMemUsages[index2]]) /
+            BYTES * 100,
+        ) / 100,
+      };
+    }
+  }
+
+  const processedResults = preprocessedResults as {
+    [K in ArrayElement<typeof tableRows>]: {
+      [K in ArrayElement<typeof tableFields>]: {
+        value: number;
+        min: number;
+        max: number;
+      };
+    };
+  };
+
   const humanReadable: {
     [K in ArrayElement<typeof tableRows>]?: {
       [K in ArrayElement<typeof tableFields>]?: string;
     };
   } = {};
 
-  for (const [index, tableRow] of tableRows.entries()) {
-    for (const [index2, tableField] of tableFields.entries()) {
-      if (index2 === 0) humanReadable[tableRow] = {};
+  for (const tableRow of tableRows) {
+    for (const [index, tableField] of tableFields.entries()) {
+      if (index === 0) humanReadable[tableRow] = {};
       humanReadable[tableRow]![tableField] = `${
-        Math.round(
-          allResults[stages[index]][typeOfMemUsages[index2]].reduce(
-            (acc, c) => acc + c,
-            0,
-          ) / allResults.start.rss.length / BYTES * 100,
-        ) / 100
-      } MB (${
-        Math.round(
-          Math.min(...allResults[stages[index]][typeOfMemUsages[index2]]) /
-            BYTES * 100,
-        ) / 100
-      } MB … ${
-        Math.round(
-          Math.max(...allResults[stages[index]][typeOfMemUsages[index2]]) /
-            BYTES * 100,
-        ) / 100
+        processedResults[tableRow][tableField].value
+      } MB (${processedResults[tableRow][tableField].min} MB … ${
+        processedResults[tableRow][tableField].max
       } MB)`;
     }
   }
 
   if (options.table) console.table(humanReadable);
-
-  const processedResults = humanReadable as {
-    [K in ArrayElement<typeof tableRows>]: {
-      [K in ArrayElement<typeof tableFields>]: string;
-    };
-  };
 
   return processedResults;
 }
